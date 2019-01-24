@@ -12,3 +12,9 @@ update skill_s
 insert skill_o
 update skill_o
  */
+
+?>
+
+<body>
+
+<h1><?php echo $title; ?></h1>

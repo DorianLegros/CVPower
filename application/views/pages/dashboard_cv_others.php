@@ -12,3 +12,8 @@ update hobbies
 insert award
 update award
  */
+?>
+
+<body>
+
+<h1><?php echo $title; ?></h1>
