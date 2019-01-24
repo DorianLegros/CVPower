@@ -49,6 +49,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Pages/viewHome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['home'] = 'Pages/viewHome';
+$route['dashboard'] = 'Pages/viewDashboard';
+$route['step1-create'] = 'Pages/viewCvStart';
+$route['step2-create'] = 'Pages/viewCvExperience';
+$route['step3-create'] = 'Pages/viewCvEducation';
+$route['step4-create'] = 'Pages/viewCvSkill';
+$route['step5-create'] = 'Pages/viewCvOther';
+$route['finalisation-create'] = 'Pages/viewCvPreview';
+$route['view']= 'Pages/viewCvView';

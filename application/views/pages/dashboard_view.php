@@ -7,3 +7,8 @@ Apercu du CV
  *
  * select cv
  */
+?>
+
+<body>
+
+<h1><?php echo $title; ?></h1>
