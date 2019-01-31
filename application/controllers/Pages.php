@@ -35,17 +35,43 @@ class Pages extends CI_Controller
 
     public function viewCvStart($page = "dashboard_cv_start")
     {
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
-            show_404();
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
+        $this->load->model('Model_CV');
+
+        $this->form_validation->set_rules('lastname','Nom', 'required');
+        $this->form_validation->set_rules('name','Prenom', 'required');
+        $this->form_validation->set_rules('phone','Tel', 'required');
+        if($this->form_validation->run() == FALSE){
+
+        }else {
+            $lastname = $this->input->post('lastname');
+            $name = $this->input->post('name');
+            $phone = $this->input->post('phone');
+
+            if($this->Model_CV->ajouter_name($lastname, $name, $phone)){
+                $this->load->view('templates/head', $data);
+                $this->load->view('templates/navbar_dashboard');
+                $this->load->view('pages/'.$page, $data);
+                $this->load->view('templates/footer_dashboard');
+                $this->load->view('templates/foot', $data);
+            }
+
+
         }
 
+//        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+//            show_404();
+//        }
         $data['title'] = "Création - Étape 1";
+
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
         $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
+
     }
 
     public function viewCvExperience($page = "dashboard_cv_experience")
