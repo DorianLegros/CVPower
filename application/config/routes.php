@@ -61,3 +61,11 @@ $route['step4-create'] = 'Pages/viewCvSkill';
 $route['step5-create'] = 'Pages/viewCvOther';
 $route['finalisation-create'] = 'Pages/viewCvPreview';
 $route['view']= 'Pages/viewCvView';
+
+$route['register'] = 'user/register';
+$route['login'] = 'user/login';
+$route['logout'] = 'user/logout';
+
+$route['default_controller'] = '';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
