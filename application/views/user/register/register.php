@@ -21,22 +21,17 @@
 			</div>
 			<?= form_open() ?>
 				<div class="form-group">
-					<label for="username">Username</label>
-					<input type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter a username">
-					<p class="help-block">Au moins 4 caractères, lettres et chiffres seulement</p>
-				</div>
-				<div class="form-group">
-					<label for="email">Email</label>
-					<input type="email" class="form-control" id="email" name="user_email" placeholder="Enter your email">
+					<label for="email">Mail</label>
+					<input type="email" class="form-control" id="mail" name="mail" placeholder="Enter your email">
 					<p class="help-block">Une adresse mail valide</p>
 				</div>
 				<div class="form-group">
-					<label for="password">Password</label>
-					<input type="password" class="form-control" id="password" name="user_password" placeholder="Enter a password">
+					<label for="password">Mot de passe</label>
+					<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter a password">
 					<p class="help-block">Au moins 6 caractères</p>
 				</div>
 				<div class="form-group">
-					<label for="password_confirm">Confirm password</label>
+					<label for="password_confirm">Confirmez votre mot de passe</label>
 					<input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirm your password">
 					<p class="help-block">Doit correspondre a votre mot de passe</p>
 				</div>

@@ -46,10 +46,9 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('user_name', 'User_name', 'trim|required|alpha_numeric|min_length[4]|is_unique[user_login.user_name]', array('is_unique' => 'This username already exists. Please choose another one.'));
-		$this->form_validation->set_rules('user_email', 'User_Email', 'trim|required|valid_email|is_unique[user_login.user_email]');
-		$this->form_validation->set_rules('user_password', 'User_Password', 'trim|required|min_length[6]');
-		$this->form_validation->set_rules('password_confirm', 'Confirm Password', 'trim|required|min_length[6]|matches[user_password]');
+		$this->form_validation->set_rules('mail', 'mail', 'trim|required|valid_email|is_unique[cvp_c_profile.mail]');
+		$this->form_validation->set_rules('pwd', 'pwd', 'trim|required|min_length[6]');
+		$this->form_validation->set_rules('password_confirm', 'password_confirm', 'trim|required|min_length[6]|matches[pwd]');
 		
 		if ($this->form_validation->run() === false) {
 			
@@ -61,11 +60,11 @@ class User extends CI_Controller {
 		} else {
 			
 			// set variables from the form
-			$user_name = $this->input->post('user_name');
-			$user_email    = $this->input->post('user_email');
-			$user_password = $this->input->post('user_password');
+
+			$user_mail    = $this->input->post('mail');
+			$user_password = $this->input->post('pwd');
 			
-			if ($this->user_model->create_user($user_name, $user_email, $user_password)) {
+			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
 				$this->load->view('header');
@@ -104,8 +103,8 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('user_name', 'Username', 'required|alpha_numeric');
-		$this->form_validation->set_rules('user_password', 'Password', 'required');
+		$this->form_validation->set_rules('mail', 'mail', 'required|alpha_numeric');
+		$this->form_validation->set_rules('pwd', 'pwd', 'required');
 		
 		if ($this->form_validation->run() == false) {
 			
@@ -117,17 +116,17 @@ class User extends CI_Controller {
 		} else {
 			
 			// set variables from the form
-			$user_name = $this->input->post('user_name');
-			$user_password = $this->input->post('user_password');
+			$user_mail = $this->input->post('mail');
+			$user_password = $this->input->post('pwd');
 			
-			if ($this->user_model->resolve_user_login($user_name, $user_password)) {
+			if ($this->user_model->resolve_user_login($user_mail, $user_password)) {
 				
-				$user_id = $this->user_model->get_user_id_from_user_name($user_name);
+				$user_id = $this->user_model->get_user_id_from_user_mail($user_mail);
 				$user    = $this->user_model->get_user($user_id);
 				
 				// set session user datas
-				$_SESSION['user_id']      = (int)$user->id;
-				$_SESSION['user_name']     = (string)$user->user_name;
+				$_SESSION['id']      = (int)$user->id;
+				$_SESSION['mail']     = (string)$user->mail;
 				$_SESSION['logged_in']    = (bool)true;
 //				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 //				$_SESSION['is_admin']     = (bool)$user->is_admin;

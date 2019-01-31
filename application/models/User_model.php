@@ -30,16 +30,15 @@ class User_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
-	public function create_user($user_name, $user_email, $user_password) {
+	public function create_user($user_mail, $user_password) {
 		
 		$data = array(
-			'user_name'   => $user_name,
-			'user_email'      => $user_email,
-			'user_password'   => $this->hash_password($user_password),
+			'mail'   => $user_mail,
+			'pwd'   => $this->hash_password($user_password),
 			'created_at' => date('Y-m-j H:i:s'),
 		);
 		
-		return $this->db->insert('user_login', $data);
+		return $this->db->insert('cvp_c_profile', $data);
 		
 	}
 	
@@ -51,12 +50,12 @@ class User_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
-	public function resolve_user_login($user_name, $user_password) {
+	public function resolve_user_login($user_mail, $user_password) {
 		
-		$this->db->select('user_password');
-		$this->db->from('user_login');
-		$this->db->where('user_name', $user_name);
-		$hash = $this->db->get()->row('user_password');
+		$this->db->select('pwd');
+		$this->db->from('cvp_c_profile');
+		$this->db->where('mail', $user_mail);
+		$hash = $this->db->get()->row('pwd');
 		
 		return $this->verify_password_hash($user_password, $hash);
 		
@@ -69,11 +68,11 @@ class User_model extends CI_Model {
 	 * @param mixed $username
 	 * @return int the user id
 	 */
-	public function get_user_id_from_username($user_name) {
+	public function get_user_id_from_user_mail($user_mail) {
 		
 		$this->db->select('id');
-		$this->db->from('user_login');
-		$this->db->where('user_name', $user_name);
+		$this->db->from('cvp_c_profile');
+		$this->db->where('mail', $user_mail);
 
 		return $this->db->get()->row('id');
 		
@@ -88,7 +87,7 @@ class User_model extends CI_Model {
 	 */
 	public function get_user($user_id) {
 		
-		$this->db->from('user_login');
+		$this->db->from('cvp_c_profile');
 		$this->db->where('id', $user_id);
 		return $this->db->get()->row();
 		
