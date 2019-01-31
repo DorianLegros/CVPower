@@ -2,6 +2,12 @@
 
 class Pages extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Model_CV');
+        $this->load->library('form_validation');
+    }
 
     public function viewHome($page = "home")
     {
@@ -35,21 +41,18 @@ class Pages extends CI_Controller
 
     public function viewCvStart($page = "dashboard_cv_start")
     {
-        $this->load->helper(array('form'));
-        $this->load->library('form_validation');
-        $this->load->model('Model_CV');
 
-        $this->form_validation->set_rules('lastname','Nom', 'required');
-        $this->form_validation->set_rules('name','Prenom', 'required');
-        $this->form_validation->set_rules('phone','Tel', 'required');
+
+        $this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
 
         }else {
-            $lastname = $this->input->post('lastname');
             $name = $this->input->post('name');
-            $phone = $this->input->post('phone');
+            $desc = $this->input->post('description');
+            //$iduser = methode de batou
 
-            if($this->Model_CV->ajouter_name($lastname, $name, $phone)){
+            if($this->Model_CV->ajouter_name($name, $desc/*, $iduser*/)){
                 $this->load->view('templates/head', $data);
                 $this->load->view('templates/navbar_dashboard');
                 $this->load->view('pages/'.$page, $data);
@@ -60,9 +63,10 @@ class Pages extends CI_Controller
 
         }
 
-//        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
-//            show_404();
-//        }
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+            show_404();
+        }
+
         $data['title'] = "Création - Étape 1";
 
 

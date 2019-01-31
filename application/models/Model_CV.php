@@ -8,26 +8,17 @@
 
 class Model_CV extends CI_Model
 {
-    protected $table = 'cvp_c_profile';
 
-    public function ajouter_name($lastname, $name, $phone_number)
+    public function ajouter_name($name, $desc/*, $iduser*/)
     {
-        /*//	Ces données seront automatiquement échappées
-        $this->db->set('lastname',  $lastname);
-        $this->db->set('name',   $name);
-        $this->db->set('phone_number', $phone_number);
-
-        //	Ces données ne seront pas échappées
-        $this->db->set('updated_at', 'NOW()', false); */
 
         $data = array(
-            'lastname' => $lastname,
             'name' => $name,
-            'phone_number' => $phone_number,
-            'updated_at' => date('Y-m-j H:i:s')
+            'description' => $desc/*,
+            'cvp_c_profile_id' => $iduser*/
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout
-        return $this->db->insert('cvp_c_profile', $data);
+        return $this->db->insert('cvp_c_cv', $data);
     }
 }
