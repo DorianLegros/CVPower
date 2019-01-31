@@ -1,3 +1,4 @@
+
 DirectoryIndex index.php
  
 # Rewrite engine
@@ -8,3 +9,4 @@ RewriteCond $1 !^(index\.php|robots\.txt|favicon\.ico)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ ./index.php/$1 [L,QSA]
+
