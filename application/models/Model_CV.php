@@ -21,7 +21,7 @@ class Model_CV extends CI_Model
         $this->db->insert('cvp_c_cv', $data);
     }
 
-    public function update($name, $desc)
+    public function update($id, $name, $desc)
     {
 
         $data = array(
@@ -30,7 +30,8 @@ class Model_CV extends CI_Model
             'updated_at' => date('Y-m-d H:i:s')
         );
 
-        //	Une fois que tous les champs ont bien été définis, on "insert" le tout
+        //	Une fois que tous les champs ont bien été définis, on "update" le tout
+        $this->db->where('id',$id);
         $this->db->replace('cvp_c_cv', $data);
     }
 
@@ -40,8 +41,8 @@ class Model_CV extends CI_Model
           'status' => 0
         );
 
-        //	On place le sur le statut "0" (archivé) à l'id sélectionné
+        //	On place sur le statut l'état "0" (archivé) à l'id sélectionné
         $this->db->where('id', $id);
-        $this->db->update('status', 0);
+        $this->db->update('cvp_c_cv', $data);
     }
 }

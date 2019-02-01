@@ -91,6 +91,7 @@ class Pages extends CI_Controller
         //Règles du formulaire à définir
         //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
         if($this->form_validation->run() == FALSE){
 
         }else {
@@ -124,6 +125,7 @@ class Pages extends CI_Controller
         //Règles du formulaire à définir
         //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
         if($this->form_validation->run() == FALSE){
 
         }else {
@@ -157,6 +159,7 @@ class Pages extends CI_Controller
         //Règles du formulaire à définir
         //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
         if($this->form_validation->run() == FALSE){
 
         }else {
@@ -166,7 +169,7 @@ class Pages extends CI_Controller
             //$idcv = à faire avec le guide URI Routing
 
             //$this->Model_Experience->add($name, $desc/*, $idcv*/);
-            header("Location: step3-create");
+            header("Location: step5-create");
         }
 
 
@@ -190,6 +193,7 @@ class Pages extends CI_Controller
         //Règles du formulaire à définir
         //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
         if($this->form_validation->run() == FALSE){
 
         }else {
@@ -199,7 +203,7 @@ class Pages extends CI_Controller
             //$idcv = à faire avec le guide URI Routing
 
             //$this->Model_Experience->add($name, $desc/*, $idcv*/);
-            header("Location: step3-create");
+            header("Location: step6-create");
         }
 
 

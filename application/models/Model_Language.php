@@ -1,12 +1,47 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: drath
- * Date: 01/02/2019
- * Time: 14:14
- */
 
 class Model_Language
 {
+    public function get($idcv)
+    {
+        return $this->db->select('*')->from('cvp_c_language')->where('cvp_c_cv_id', $idcv);
+    }
 
+    public function add($name, $level/*, $idcv*/)
+    {
+
+        $data = array(
+            'name' => $name,
+            'level' => $level/*,
+            'cvp_c_cv_id' => $idcv*/
+        );
+
+        //	Une fois que tous les champs ont bien été définis, on "insert" le tout
+        $this->db->insert('cvp_c_language', $data);
+    }
+
+    public function update($id, $name, $level)
+    {
+
+        $data = array(
+            'name' => $name,
+            'level' => $level,
+            'updated_at' => date('Y-m-d H:i:s')
+        );
+
+        //	Une fois que tous les champs ont bien été définis, on "update" le tout
+        $this->db->where('id', $id);
+        $this->db->update('cvp_c_language', $data);
+    }
+
+    public function remove($id)
+    {
+        $data = array(
+            'status' => 0
+        );
+
+        //	On place sur le statut l'état "0" (archivé) à l'id sélectionné
+        $this->db->where('id', $id);
+        $this->db->update('cvp_c_language', $data);
+    }
 }
