@@ -65,7 +65,3 @@ $route['view']= 'Pages/viewCvView';
 $route['register'] = 'user/register';
 $route['login'] = 'user/login';
 $route['logout'] = 'user/logout';
-
-$route['default_controller'] = '';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;

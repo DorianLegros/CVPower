@@ -63,9 +63,9 @@ class Pages extends CI_Controller
         }else {
             $name = $this->input->post('name');
             $desc = $this->input->post('description');
-            //$iduser = methode de batou
+            $iduser = $_SESSION['id'];
 
-            $this->Model_CV->add($name, $desc/*, $iduser*/);
+            $this->Model_CV->add($name, $desc, $iduser);
             header("Location: step2-create");
         }
 
