@@ -30,12 +30,17 @@ class User_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
+
+$hash = hash('sha256', time() . mt_rand());
+$token = BaseConvert($hash, BaseConvert::BASE16, BaseConvert::BASE54);
+
 	public function create_user($user_mail, $user_password) {
 		
 		$data = array(
 			'mail'   => $user_mail,
 			'pwd'   => $this->hash_password($user_password),
 			'created_at' => date('Y-m-j H:i:s'),
+            'token' =>
 		);
 		
 		return $this->db->insert('cvp_c_profile', $data);
@@ -119,5 +124,8 @@ class User_model extends CI_Model {
 		return password_verify($user_password, $hash);
 		
 	}
+
+
+
 	
 }
