@@ -31,8 +31,6 @@ class User_model extends CI_Model {
 	 * @return bool true on success, false on failure
 	 */
 
-$hash = hash('sha256', time() . mt_rand());
-$token = BaseConvert($hash, BaseConvert::BASE16, BaseConvert::BASE54);
 
 	public function create_user($user_mail, $user_password) {
 		
@@ -40,8 +38,7 @@ $token = BaseConvert($hash, BaseConvert::BASE16, BaseConvert::BASE54);
 			'mail'   => $user_mail,
 			'pwd'   => $this->hash_password($user_password),
 			'created_at' => date('Y-m-j H:i:s'),
-            'token' =>
-		);
+        );
 		
 		return $this->db->insert('cvp_c_profile', $data);
 		
