@@ -1,51 +1,55 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: drath
+ * Date: 01/02/2019
+ * Time: 14:00
+ */
 
-class Model_CV extends CI_Model
+class Model_Skill_O
 {
     public function construct(){
         parent::construct();
     }
 
-    public function get($iduser)
+    public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser);
+        return $this->db->select('*')->from('cvp_c_skill_o')->where('cvp_c_cv_id', $idcv);
     }
 
-    public function add($name, $desc, $iduser)
+    public function add($name/*, $idcv*/)
     {
 
         $data = array(
-            'name' => $name,
-            'description' => $desc,
-            'cvp_c_profile_id' => $iduser
+            'name' => $name/*,
+            'cvp_c_cv_id' => $idcv*/
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout
-        $this->db->insert('cvp_c_cv', $data);
+        $this->db->insert('cvp_c_skill_o', $data);
     }
 
-    public function update($id, $name, $desc)
+    public function update($id, $name)
     {
 
         $data = array(
             'name' => $name,
-            'description' => $desc,
             'updated_at' => date('Y-m-d H:i:s')
         );
 
         //	Une fois que tous les champs ont bien été définis, on "update" le tout
-        $this->db->where('id',$id);
-        $this->db->replace('cvp_c_cv', $data);
+        $this->db->where('id', $id);
+        $this->db->update('cvp_c_skill_o', $data);
     }
 
     public function remove($id)
     {
         $data = array(
-          'status' => 0
+            'status' => 0
         );
 
         //	On place sur le statut l'état "0" (archivé) à l'id sélectionné
         $this->db->where('id', $id);
-        $this->db->update('cvp_c_cv', $data);
+        $this->db->update('cvp_c_skill_o', $data);
     }
 }

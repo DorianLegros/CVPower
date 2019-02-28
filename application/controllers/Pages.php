@@ -2,6 +2,21 @@
 
 class Pages extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Model_CV');
+        $this->load->model('Model_Experience');
+        $this->load->model('Model_Education');
+        $this->load->model('Model_Skill_P');
+        $this->load->model('Model_Skill_S');
+        $this->load->model('Model_Skill_O');
+        $this->load->model('Model_Language');
+        $this->load->model('Model_Hobby');
+        $this->load->model('Model_Award');
+        $this->load->library('form_validation');
+    }
+
 
     public function viewHome($page = "home")
     {
@@ -18,6 +33,7 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot');
     }
 
+
     public function viewDashboard($page = "dashboard")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
@@ -33,38 +49,28 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot', $data);
     }
 
+
     public function viewCvStart($page = "dashboard_cv_start")
     {
-        $this->load->helper(array('form'));
-        $this->load->library('form_validation');
-        $this->load->model('Model_CV');
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+            show_404();
+        }
 
-        $this->form_validation->set_rules('lastname','Nom', 'required');
-        $this->form_validation->set_rules('name','Prenom', 'required');
-        $this->form_validation->set_rules('phone','Tel', 'required');
+        $this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
 
         }else {
-            $lastname = $this->input->post('lastname');
             $name = $this->input->post('name');
-            $phone = $this->input->post('phone');
+            $desc = $this->input->post('description');
+            $iduser = $_SESSION['id'];
 
-            if($this->Model_CV->ajouter_name($lastname, $name, $phone)){
-                $this->load->view('templates/head', $data);
-                $this->load->view('templates/navbar_dashboard');
-                $this->load->view('pages/'.$page, $data);
-                $this->load->view('templates/footer_dashboard');
-                $this->load->view('templates/foot', $data);
-            }
-
-
+            $this->Model_CV->add($name, $desc, $iduser);
+            header("Location: step2-create");
         }
 
-//        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
-//            show_404();
-//        }
-        $data['title'] = "Création - Étape 1";
 
+        $data['title'] = "Création - Étape 1";
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
@@ -74,11 +80,31 @@ class Pages extends CI_Controller
 
     }
 
+
     public function viewCvExperience($page = "dashboard_cv_experience")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
             show_404();
         }
+
+        $this->form_validation->set_rules('job','Métier', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('company','Nome de l\'entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('desc','Description du poste', 'min_length[5]|max_length[255]', array('min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        if($this->form_validation->run() == FALSE){
+
+        }else {
+            //Récupération des entrées du form
+            //$job = $this->input->post('job');
+            //$company = $this->input->post('company');
+            //$yearbegin = $this->input->post('yearbegin');
+            //$yearend = $this->input->post('yearend');
+            //$desc = $this->input->post('desc');
+            //$idcv = à faire avec le guide URI Routing
+
+            //$this->Model_Experience->add($name, $desc/*, $idcv*/);
+            header("Location: step3-create");
+        }
+
 
         $data['title'] = "Création - Étape 2";
 
@@ -89,11 +115,31 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot', $data);
     }
 
+
     public function viewCvEducation($page = "dashboard_cv_education")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
             show_404();
         }
+
+
+        //Règles du formulaire à définir
+        $this->form_validation->set_rules('diploma','Formation', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('school','Nom de l\'école', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        if($this->form_validation->run() == FALSE){
+
+        }else {
+            //Récupération des entrées du form
+            //$name = $this->input->post('name');
+            //$yearbegin = $this->input->post('anneedebut');
+            //$yearend = $this->input->post('anneefin');
+            //$desc = $this->input->post('description');
+            //$idcv = à faire avec le guide URI Routing
+
+            //$this->Model_Experience->add($name, $desc/*, $idcv*/);
+            header("Location: step4-create");
+        }
+
 
         $data['title'] = "Création - Étape 3";
 
@@ -104,11 +150,30 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot', $data);
     }
 
+
     public function viewCvSkill($page = "dashboard_cv_skill")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
             show_404();
         }
+
+
+        //Règles du formulaire à définir
+        //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
+        if($this->form_validation->run() == FALSE){
+
+        }else {
+            //Récupération des entrées du form
+            //$name = $this->input->post('name');
+            //$desc = $this->input->post('description');
+            //$idcv = à faire avec le guide URI Routing
+
+            //$this->Model_Experience->add($name, $desc/*, $idcv*/);
+            header("Location: step5-create");
+        }
+
 
         $data['title'] = "Création - Étape 4";
 
@@ -119,11 +184,30 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot', $data);
     }
 
+
     public function viewCvOther($page = "dashboard_cv_others")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
             show_404();
         }
+
+
+        //Règles du formulaire à définir
+        //$this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        //$this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        /* possible controlleur pour le traitement du nombre d'entrée saisi */
+        if($this->form_validation->run() == FALSE){
+
+        }else {
+            //Récupération des entrées du form
+            //$name = $this->input->post('name');
+            //$desc = $this->input->post('description');
+            //$idcv = à faire avec le guide URI Routing
+
+            //$this->Model_Experience->add($name, $desc/*, $idcv*/);
+            header("Location: step6-create");
+        }
+
 
         $data['title'] = "Création - Étape 5";
 
@@ -134,11 +218,16 @@ class Pages extends CI_Controller
         $this->load->view('templates/foot', $data);
     }
 
+
     public function viewCvPreview($page = "dashboard_cv_preview")
     {
         if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
             show_404();
         }
+
+
+        /* Traitement du choix de la couleur */
+
 
         $data['title'] = "Création - Finalisation";
 
@@ -148,6 +237,7 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
+
 
     public function viewCvView($page = "dashboard_view")
     {
