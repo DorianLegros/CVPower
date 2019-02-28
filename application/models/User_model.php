@@ -30,13 +30,15 @@ class User_model extends CI_Model {
 	 * @param mixed $password
 	 * @return bool true on success, false on failure
 	 */
+
+
 	public function create_user($user_mail, $user_password) {
 		
 		$data = array(
 			'mail'   => $user_mail,
 			'pwd'   => $this->hash_password($user_password),
 			'created_at' => date('Y-m-j H:i:s'),
-		);
+        );
 		
 		return $this->db->insert('cvp_c_profile', $data);
 		
@@ -119,5 +121,8 @@ class User_model extends CI_Model {
 		return password_verify($user_password, $hash);
 		
 	}
+
+
+
 	
 }

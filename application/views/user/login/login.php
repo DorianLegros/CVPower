@@ -22,11 +22,11 @@
 			<?= form_open() ?>
 				<div class="form-group">
 					<label for="username">Nom d'utilisateur</label>
-					<input type="text" class="form-control" id="user_name" name="user_name" placeholder="Votre nom d'utilisateur">
+					<input type="text" class="form-control" id="mail" name="mail" placeholder="Votre nom d'utilisateur">
 				</div>
 				<div class="form-group">
 					<label for="password">Mot de passe</label>
-					<input type="password" class="form-control" id="user_password" name="user_password" placeholder="Votre mot de passe">
+					<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Votre mot de passe">
 				</div>
 				<div class="form-group">
 					<input type="submit" class="btn btn-default" value="Connexion">

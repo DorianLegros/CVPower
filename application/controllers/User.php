@@ -89,6 +89,7 @@ class User extends CI_Controller {
 		
 	/**
 	 * login function.
+     * 
 	 * 
 	 * @access public
 	 * @return void
@@ -103,7 +104,7 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('mail', 'mail', 'required|alpha_numeric');
+		$this->form_validation->set_rules('mail', 'mail', 'required');
 		$this->form_validation->set_rules('pwd', 'pwd', 'required');
 		
 		if ($this->form_validation->run() == false) {

@@ -65,3 +65,4 @@ $route['view']= 'Pages/viewCvView';
 $route['register'] = 'user/register';
 $route['login'] = 'user/login';
 $route['logout'] = 'user/logout';
+
