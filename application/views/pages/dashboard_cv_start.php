@@ -13,14 +13,13 @@ Ajout du nom et description du cv
 
 
 <form action="" method="post">
-    <label for="lastname">Nom</label>
-    <input type="text" name="lastname">
+    <?= form_error('name') ?>
+    <label for="name">Nom du CV</label>
+    <input type="text" name="name" value="<?php if(!empty($_POST['name'])){echo $_POST['name'];} ?>">
 
-    <label for="name">Prenom</label>
-    <input type="text" name="name">
-
-    <label for="phone">Tel</label>
-    <input type="number" name="phone">
+    <?= form_error('description') ?>
+    <label for="description">Description du CV</label>
+    <textarea name="description" maxlength="255"><?php if(!empty($_POST['description'])){echo $_POST['description'];} ?></textarea>
 
     <input type="submit" value="Envoyer">
 </form>
