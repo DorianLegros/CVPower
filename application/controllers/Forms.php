@@ -25,10 +25,15 @@ class Forms extends CI_Controller
     }
 
     public function traitementStart(){
-        $this->form_validation->set_rules('name','Nom du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        $this->form_validation->set_rules('description','Description du CV', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('name','Nom', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('description','Description', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
-
+            $data['title'] = "Création - Étape 1";
+            $this->load->view('templates/head', $data);
+            $this->load->view('templates/navbar_index');
+            $this->load->view('pages/dashboard_cv_start');
+            $this->load->view('templates/footer_index');
+            $this->load->view('templates/foot');
         }else {
             $name = $this->input->post('name');
             $desc = $this->input->post('description');
@@ -41,8 +46,8 @@ class Forms extends CI_Controller
 
     public function traitementExperience(){
         $this->form_validation->set_rules('job','Métier', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        $this->form_validation->set_rules('company','Nome de l\'entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
-        $this->form_validation->set_rules('desc','Description du poste', 'min_length[5]|max_length[255]', array('min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('company','Entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('desc','Description', 'required|min_length[5]|max_length[255]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         if($this->form_validation->run() == FALSE){
 
         }else {
@@ -56,6 +61,12 @@ class Forms extends CI_Controller
 
             //$this->Model_Experience->add($name, $desc/*, $idcv*/);
         }
+        $data['title'] = "Création - Étape 2";
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/navbar_dashboard');
+        $this->load->view('pages/dashboard_cv_experience');
+        $this->load->view('templates/footer_dashboard');
+        $this->load->view('templates/foot');
     }
 
     public function traitementEducation(){

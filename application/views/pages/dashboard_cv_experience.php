@@ -25,44 +25,47 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementExperience" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une expérience</legend>
 
             <div class="form-element form-input">
-                <input id="exp_metier" class="form-element-field" placeholder="Remplir avec un metier" type="input" required/>
+                <input name="job" id="exp_metier" class="form-element-field" placeholder="Remplir avec un metier" type="input" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="exp_metier">Metier</label>
+                <label class="form-element-label" for="exp_metier">Métier</label>
+                <?php echo form_error('job', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" required/>
+                <input name="company" id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_entreprise">Entreprise</label>
+                <?php echo form_error('name', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" required/>
+                <input id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_debut">Date début</label>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_fin" class="form-element-field" placeholder="Remplir avec la date du début" type="date" required/>
+                <input id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date de fin</label>
             </div>
 
             <div class="form-element form-textarea">
-                <textarea id="exp_description" class="form-element-field" placeholder="Ce que cette expérience vous a apporté"></textarea>
+                <textarea name="desc" id="exp_description" class="form-element-field" placeholder="Ce que cette expérience vous a apporté"></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_description">Description</label>
+                <?php echo form_error('desc', '<p class="error">', '</p>') ?>
             </div>
 
         </fieldset>
         <div class="form-actions">
             <button id="button" data-name="formation.html" class="form-btn" type="button">Suivant</button>
-            <button class="form-btn-cancel -nooutline" type="submit">Ajouter experience</button>
+            <button class="form-btn-cancel -nooutline" name="submitted" type="submit">Ajouter experience</button>
         </div>
     </form>
 </div>
