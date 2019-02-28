@@ -6,7 +6,7 @@
  * Time: 14:00
  */
 
-class Model_Skill_P
+class Model_Skill_P extends CI_Model
 {
     public function construct(){
         parent::construct();
@@ -14,7 +14,12 @@ class Model_Skill_P
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_skill_m')->where('cvp_c_cv_id', $idcv);
+        return $this->db->select('*')->from('cvp_c_skill_m')->where('cvp_c_cv_id', $idcv)->get();
+    }
+
+    public function getAll()
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->get();
     }
 
     public function add($name/*, $idcv*/)

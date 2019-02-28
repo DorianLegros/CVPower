@@ -1,6 +1,6 @@
 <?php
 
-class Model_Award
+class Model_Award extends CI_Model
 {
     public function construct(){
         parent::construct();
@@ -8,7 +8,12 @@ class Model_Award
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_award')->where('cvp_c_cv_id', $idcv);
+        return $this->db->select('*')->from('cvp_c_award')->where('cvp_c_cv_id', $idcv)->get();
+    }
+
+    public function getAll()
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->get();
     }
 
     public function add($name, $desc, $year/*, $idcv*/)

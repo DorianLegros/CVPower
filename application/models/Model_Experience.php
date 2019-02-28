@@ -1,6 +1,6 @@
 <?php
 
-class Model_Experience
+class Model_Experience extends CI_Model
 {
     public function construct(){
         parent::construct();
@@ -8,7 +8,12 @@ class Model_Experience
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv);
+        return $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv)->get();
+    }
+
+    public function getAll()
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->get();
     }
 
     public function add($job, $company, $yearbegin, $yearend, $desc/*, $idcv*/)

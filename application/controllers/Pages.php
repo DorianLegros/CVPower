@@ -15,6 +15,7 @@ class Pages extends CI_Controller
         $this->load->model('Model_Hobby');
         $this->load->model('Model_Award');
         $this->load->library('form_validation');
+        $this->load->library(array('session'));
     }
 
 

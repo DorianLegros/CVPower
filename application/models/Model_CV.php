@@ -8,7 +8,11 @@ class Model_CV extends CI_Model
 
     public function get($iduser)
     {
-        return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser);
+        return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser)->get();
+    }
+    public function getAll()
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->get();
     }
 
     public function add($name, $desc, $iduser)
