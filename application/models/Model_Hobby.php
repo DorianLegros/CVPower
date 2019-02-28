@@ -1,6 +1,6 @@
 <?php
 
-class Model_Hobby
+class Model_Hobby extends CI_Model
 {
     public function construct(){
         parent::construct();

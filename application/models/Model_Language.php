@@ -1,6 +1,6 @@
 <?php
 
-class Model_Language
+class Model_Language extends CI_Model
 {
     public function construct(){
         parent::construct();

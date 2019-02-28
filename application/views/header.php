@@ -35,7 +35,7 @@
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<?php if (isset($_SESSION['user_name']) && $_SESSION['logged_in'] === true) : ?>
+						<?php if (isset($_SESSION['mail']) && $_SESSION['logged_in'] === true) : ?>
 							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
 						<?php else : ?>
 							<li><a href="<?= base_url('register') ?>">Register</a></li>

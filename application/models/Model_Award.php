@@ -1,6 +1,6 @@
 <?php
 
-class Model_Award
+class Model_Award extends CI_Model
 {
     public function construct(){
         parent::construct();

@@ -1,6 +1,6 @@
 <?php
 
-class Model_Experience
+class Model_Experience extends CI_Model
 {
     public function construct(){
         parent::construct();

@@ -1,6 +1,6 @@
 <?php
 
-class Model_Education
+class Model_Education extends CI_Model
 {
     public function construct(){
         parent::construct();
