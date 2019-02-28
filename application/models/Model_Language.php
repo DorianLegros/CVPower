@@ -1,6 +1,6 @@
 <?php
 
-class Model_Language
+class Model_Language extends CI_Model
 {
     public function construct(){
         parent::construct();
@@ -8,8 +8,14 @@ class Model_Language
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_language')->where('cvp_c_cv_id', $idcv);
+        return $this->db->select('*')->from('cvp_c_language')->where('cvp_c_cv_id', $idcv)->get();
     }
+
+    public function getAll()
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->get();
+    }
+
 
     public function add($name, $level/*, $idcv*/)
     {
