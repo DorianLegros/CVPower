@@ -61,9 +61,9 @@ class Forms extends CI_Controller
             $yearbegin = $this->input->post('yearbegin');
             $yearend = $this->input->post('yearend');
             $desc = $this->input->post('desc');
-            //$idcv = à faire avec le guide URI Routing
+            $idcv = $_SESSION['id_CV'];
 
-            $this->Model_Experience->add($job, $company, $yearbegin, $yearend, $desc/*, $idcv*/);
+            $this->Model_Experience->add($job, $company, $yearbegin, $yearend, $desc, $idcv);
         }
         $data['title'] = "Création - Étape 2";
         $this->load->view('templates/head', $data);
@@ -79,14 +79,13 @@ class Forms extends CI_Controller
         if($this->form_validation->run() == FALSE){
 
         }else {
-            //Récupération des entrées du form
-            //$diploma = $this->input->post('diploma');
-            //$school = $this->input->post('shcool');
-            //$yearbegin = $this->input->post('anneedebut');
-            //$yearend = $this->input->post('anneefin');
-            //$idcv = à faire avec le guide URI Routing
+            $diploma = $this->input->post('diploma');
+            $school = $this->input->post('shcool');
+            $yearbegin = $this->input->post('anneedebut');
+            $yearend = $this->input->post('anneefin');
+            $idcv = $_SESSION['id_CV'];
 
-            //$this->Model_Education->add($school, $diploma, $yearbegin, $yearend/*, $idcv*/);
+            $this->Model_Education->add($school, $diploma, $yearbegin, $yearend, $idcv);
         }
     }
 

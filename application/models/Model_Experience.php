@@ -11,16 +11,16 @@ class Model_Experience extends CI_Model
         return $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv);
     }
 
-    public function add($job, $company, $yearbegin, $yearend, $desc/*, $idcv*/)
+    public function add($job, $company, $yearbegin, $yearend, $desc, $idcv)
     {
 
         $data = array(
             'name_job' => $job,
-            'company' => $company,
+            'compagny' => $company,
             'beginning' => $yearbegin,
             'ending' => $yearend,
-            'description' => $desc/*,
-            'cvp_c_cv_id' => $idcv*/
+            'description' => $desc,
+            'cvp_c_cv_id' => $idcv
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout
