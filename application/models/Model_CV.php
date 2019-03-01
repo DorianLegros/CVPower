@@ -11,6 +11,18 @@ class Model_CV extends CI_Model
         return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser);
     }
 
+    public function getIdCv($iduser)
+    {
+
+        $this->db->select('id');
+        $this->db->from('cvp_c_cv');
+        $this->db->where('cvp_c_profile_id', $iduser);
+        $this->db->order_by('created_at','DESC');
+        $result = $this->db->get()->result_array();
+
+        return $result;
+    }
+
     public function add($name, $desc, $iduser)
     {
 

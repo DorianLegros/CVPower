@@ -24,7 +24,7 @@
 </div>
 
 <div class="middle">
-
+    <?php echo site_url('step2-create') ?>
     <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementExperience" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une expérience</legend>
@@ -40,17 +40,17 @@
                 <input name="company" id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_entreprise">Entreprise</label>
-                <?php echo form_error('name', '<p class="error">', '</p>') ?>
+                <?php echo form_error('company', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
+                <input name="yearbegin" id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_debut">Date début</label>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
+                <input name="yearend" id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date de fin</label>
             </div>

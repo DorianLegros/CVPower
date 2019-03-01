@@ -5,8 +5,10 @@ class Pages extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Model_CV');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
+        $this->load->helper('url');
     }
 
 
@@ -66,6 +68,10 @@ class Pages extends CI_Controller
             show_404();
         }
 
+        $iduser = $_SESSION['id'];
+        $idcv = $this->Model_CV->getIdCv($iduser);
+
+        $_SESSION['id_CV']    = (int)$idcv[0]['id'];     // /!\ à détruire à la fin du formulaire
 
         $data['title'] = "Création - Étape 2";
 
@@ -74,6 +80,7 @@ class Pages extends CI_Controller
         $this->load->view('pages/'.$page, $data);
         $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
+
     }
 
 

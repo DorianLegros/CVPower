@@ -22,6 +22,7 @@ class Forms extends CI_Controller
         $this->load->model('Model_Award');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
+        $this->load->helper('url');
     }
 
     public function traitementStart(){
@@ -40,26 +41,29 @@ class Forms extends CI_Controller
             $iduser = $_SESSION['id'];
 
             $this->Model_CV->add($name, $desc, $iduser);
-            header('Location: ../step2-create');
+
+
+            header("Location: ../step2-create");
         }
     }
 
     public function traitementExperience(){
-        $this->form_validation->set_rules('job','Métier', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        $this->form_validation->set_rules('company','Entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
-        $this->form_validation->set_rules('desc','Description', 'required|min_length[5]|max_length[255]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+
+        $this->form_validation->set_rules('job','Métier', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('company','Entreprise', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('desc','Description', 'required|min_length[5]|max_length[255]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
 
         }else {
             //Récupération des entrées du form
-            //$job = $this->input->post('job');
-            //$company = $this->input->post('company');
-            //$yearbegin = $this->input->post('yearbegin');
-            //$yearend = $this->input->post('yearend');
-            //$desc = $this->input->post('desc');
+            $job = $this->input->post('job');
+            $company = $this->input->post('company');
+            $yearbegin = $this->input->post('yearbegin');
+            $yearend = $this->input->post('yearend');
+            $desc = $this->input->post('desc');
             //$idcv = à faire avec le guide URI Routing
 
-            //$this->Model_Experience->add($name, $desc/*, $idcv*/);
+            $this->Model_Experience->add($job, $company, $yearbegin, $yearend, $desc/*, $idcv*/);
         }
         $data['title'] = "Création - Étape 2";
         $this->load->view('templates/head', $data);
