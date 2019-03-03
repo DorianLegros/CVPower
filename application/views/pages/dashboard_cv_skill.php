@@ -27,10 +27,12 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste1 as $value){ ?>
         <tr>
-            <td><strong>Compétence</strong></td>
+            <td><strong><?= $value['name'] ?></strong></td>
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 
@@ -65,11 +67,13 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste2 as $value){ ?>
         <tr>
-            <td><strong>Compétence</strong></td>
+            <td><strong><?= $value['name'] ?></strong></td>
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
 
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 
@@ -90,7 +94,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <button id="button" data-name="others.html" class="form-btn" type="button">Suivant</button>
+            <a href="<?php if(validation_errors()){ echo "../";} ?>step5-create"><button id="button" data-name="others.html" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une compétence organisationelle</button>
         </div>
     </form>
@@ -105,10 +109,12 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste3 as $value){ ?>
         <tr>
-            <td><strong>Compétence</strong></td>
+            <td><strong><?= $value['name'] ?></strong></td>
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 

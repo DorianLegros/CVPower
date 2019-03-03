@@ -37,32 +37,16 @@
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($liste_exp as $value){ ?>
             <tr>
-                <td><strong>Metier</strong></td>
-                <td>Entreprise</td>
-                <td>01/08/2018</td>
-                <td>01/08/2018</td>
-                <td>Blablabla bla</td>
+                <td><strong><?= $value['name_job'] ?></strong></td>
+                <td><?= $value['compagny'] ?></td>
+                <td><?= $value['beginning'] ?></td>
+                <td><?= $value['ending'] ?></td>
+                <td><?= $value['description'] ?></td>
                 <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
-            <tr>
-                <td><strong>Metier</strong></td>
-                <td>Entreprise</td>
-                <td>01/08/2018</td>
-                <td>01/08/2018</td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
-            </tr>
-            <tr>
-                <td><strong>Metier</strong></td>
-                <td>Entreprise</td>
-                <td>01/08/2018</td>
-                <td>01/08/2018</td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
-            </tr>
+            <?php } ?>
             </tbody>
         </table>
 
@@ -81,15 +65,17 @@
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($liste_edu as $value){ ?>
             <tr>
-                <td>I</td>
-                <td><strong>Formation</strong></td>
-                <td>Ecole</td>
-                <td>01/08/2018</td>
-                <td>01/08/2018</td>
-                <td>Blablabla bla</td>
+                <!--<td>I</td>-->
+                <td><strong><?= $value['diploma'] ?></strong></td>
+                <td><?= $value['school'] ?></td>
+                <td><?= $value['beginning'] ?></td>
+                <td><?= $value['ending'] ?></td>
+                <!--<td>Blablabla bla</td>-->
                 <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
+            <?php } ?>
             </tbody>
         </table>
 
@@ -104,11 +90,12 @@
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($liste_sklp as $value){ ?>
             <tr>
-                <td><strong>Compétence</strong></td>
-                <td>Blablabla bla</td>
+                <td><strong><?= $value['name'] ?></strong></td>
                 <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
+            <?php } ?>
             </tbody>
         </table>
 
@@ -123,11 +110,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><strong>Compétence</strong></td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-            </tr>
+            <?php foreach ($liste_skls as $value){ ?>
+                <tr>
+                    <td><strong><?= $value['name'] ?></strong></td>
+                    <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
 
@@ -142,11 +130,12 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><strong>Compétence</strong></td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-            </tr>
+            <?php foreach ($liste_sklo as $value){ ?>
+                <tr>
+                    <td><strong><?= $value['name'] ?></strong></td>
+                    <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
 

@@ -153,7 +153,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <button id="button" data-name="preview.html" class="form-btn" type="button">Suivant</button>
+            <a href="<?php if(validation_errors()){ echo "../";} ?>finalisation-create"><button id="button" data-name="preview.html" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une  récompence</button>
         </div>
     </form>

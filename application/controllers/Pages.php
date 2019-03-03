@@ -119,6 +119,9 @@ class Pages extends CI_Controller
 
 
         $data['title'] = "Création - Étape 4";
+        $data['liste1'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Skill_S->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
@@ -153,7 +156,18 @@ class Pages extends CI_Controller
 
 
         /* Traitement du choix de la couleur */
+        /*
+         *
+         */
 
+        $data['liste_exp'] = $this->Model_Experience->get($_SESSION['id_CV']);
+        $data['liste_edu'] = $this->Model_Education->get($_SESSION['id_CV']);
+        $data['liste_sklp'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
+        $data['liste_skls'] = $this->Model_Skill_S->get($_SESSION['id_CV']);
+        $data['liste_sklo'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
+        //$data['liste_lang'] = $this->Model_Language->get($_SESSION['id_CV']);
+        //$data['liste_hobby'] = $this->Model_Hobby->get($_SESSION['id_CV']);
+        //$data['liste_award'] = $this->Model_Award->get($_SESSION['id_CV']);
 
         $data['title'] = "Création - Finalisation";
 

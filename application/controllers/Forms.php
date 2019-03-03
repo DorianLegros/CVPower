@@ -116,6 +116,9 @@ class Forms extends CI_Controller
             header("Location: ../step4-create");
         }
         $data['title'] = "Création - Étape 4";
+        $data['liste1'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Skill_S->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
@@ -136,6 +139,9 @@ class Forms extends CI_Controller
             header("Location: ../step4-create");
         }
         $data['title'] = "Création - Étape 4";
+        $data['liste1'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Skill_S->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
@@ -156,6 +162,9 @@ class Forms extends CI_Controller
             header("Location: ../step4-create");
         }
         $data['title'] = "Création - Étape 4";
+        $data['liste1'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Skill_S->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
