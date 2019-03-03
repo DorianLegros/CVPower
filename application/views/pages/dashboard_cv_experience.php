@@ -24,7 +24,6 @@
 </div>
 
 <div class="middle">
-    <?php echo site_url('step2-create') ?>
     <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementExperience" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une expérience</legend>
@@ -66,7 +65,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <a href="step3-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
+            <a href="<?php if(validation_errors()){ echo "../";} ?>step3-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" name="submitted" type="submit">Ajouter experience</button>
         </div>
     </form>
@@ -86,32 +85,16 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste as $value){ ?>
         <tr>
-            <td><strong>Metier</strong></td>
-            <td>Entreprise</td>
-            <td>01/08/2018</td>
-            <td>01/08/2018</td>
-            <td>Blablabla bla</td>
+            <td><strong><?= $value['name_job'] ?></strong></td>
+            <td><?= $value['compagny'] ?></td>
+            <td><?= $value['beginning'] ?></td>
+            <td><?= $value['ending'] ?></td>
+            <td><?= $value['description'] ?></td>
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
-        <tr>
-            <td><strong>Metier</strong></td>
-            <td>Entreprise</td>
-            <td>01/08/2018</td>
-            <td>01/08/2018</td>
-            <td>Blablabla bla</td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
-        </tr>
-        <tr>
-            <td><strong>Metier</strong></td>
-            <td>Entreprise</td>
-            <td>01/08/2018</td>
-            <td>01/08/2018</td>
-            <td>Blablabla bla</td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
-        </tr>
+        <?php } ?>
         </tbody>
     </table>
 

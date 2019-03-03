@@ -8,7 +8,8 @@ class Model_Skill_O extends CI_Model
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_skill_o')->where('cvp_c_cv_id', $idcv);
+        $this->db->select('*')->from('cvp_c_skill_o')->where('cvp_c_cv_id', $idcv);
+        return $this->db->get()->result_array();
     }
 
     public function add($name, $idcv)

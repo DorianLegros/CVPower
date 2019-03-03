@@ -8,7 +8,8 @@ class Model_Experience extends CI_Model
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv);
+        $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv);
+        return $this->db->get()->result_array();
     }
 
     public function add($job, $company, $yearbegin, $yearend, $desc, $idcv)

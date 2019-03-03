@@ -68,6 +68,7 @@ class Forms extends CI_Controller
             header("Location: ../step2-create");
         }
         $data['title'] = "Création - Étape 2";
+        $data['liste'] = $this->Model_Experience->get($_SESSION['id_CV']);
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_experience');
@@ -94,6 +95,7 @@ class Forms extends CI_Controller
             header("Location: ../step3-create");
         }
         $data['title'] = "Création - Étape 3";
+        $data['liste'] = $this->Model_Education->get($_SESSION['id_CV']);
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_education');

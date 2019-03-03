@@ -8,7 +8,8 @@ class Model_Education extends CI_Model
 
     public function get($idcv)
     {
-        return $this->db->select('*')->from('cvp_c_education')->where('cvp_c_cv_id', $idcv);
+        $this->db->select('*')->from('cvp_c_education')->where('cvp_c_cv_id', $idcv);
+        return $this->db->get()->result_array();
     }
 
     public function add($school, $diploma, $yearbegin, $yearend, $idcv)

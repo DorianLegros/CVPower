@@ -6,6 +6,14 @@ class Pages extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Model_CV');
+        $this->load->model('Model_Experience');
+        $this->load->model('Model_Education');
+        $this->load->model('Model_Skill_P');
+        $this->load->model('Model_Skill_S');
+        $this->load->model('Model_Skill_O');
+        $this->load->model('Model_Language');
+        $this->load->model('Model_Hobby');
+        $this->load->model('Model_Award');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
         $this->load->helper('url');
@@ -74,6 +82,7 @@ class Pages extends CI_Controller
         $_SESSION['id_CV']    = (int)$idcv[0]['id'];     // /!\ à détruire à la fin du formulaire
 
         $data['title'] = "Création - Étape 2";
+        $data['liste'] = $this->Model_Experience->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');
@@ -92,6 +101,7 @@ class Pages extends CI_Controller
 
 
         $data['title'] = "Création - Étape 3";
+        $data['liste'] = $this->Model_Education->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');

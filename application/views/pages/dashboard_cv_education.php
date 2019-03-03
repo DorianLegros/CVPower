@@ -83,7 +83,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <a href="step4-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
+            <a href="<?php if(validation_errors()){ echo "../";} ?>step4-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une formation </button>
         </div>
     </form>
@@ -103,15 +103,17 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste as $value){ ?>
         <tr>
-            <td>I</td>
-            <td><strong>Formation</strong></td>
-            <td>Ecole</td>
-            <td>01/08/2018</td>
-            <td>01/08/2018</td>
-            <td>Blablabla bla</td>
+            <!--<td>I</td>-->
+            <td><strong><?= $value['diploma'] ?></strong></td>
+            <td><?= $value['school'] ?></td>
+            <td><?= $value['beginning'] ?></td>
+            <td><?= $value['ending'] ?></td>
+            <!--<td>Blablabla bla</td>-->
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 
