@@ -1,13 +1,14 @@
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="Form/traitementSkillP" method="post">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillP" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence principale</legend>
 
             <div class="form-element form-input">
-                <input id="skm_name" class="form-element-field" placeholder="Compétence principale pour le metier" type="input" required/>
+                <input name="name1" id="skm_name" class="form-element-field" placeholder="Compétence principale pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="skm_name">Nom</label>
+                <?php echo form_error('name1', '<p class="error">', '</p>') ?>
             </div>
 
         </fieldset>
@@ -37,14 +38,15 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="Form/traitementSkillS" method="post">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillS" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence secondaire</legend>
 
             <div class="form-element form-input">
-                <input id="sks_name" class="form-element-field" placeholder="Compétence secondaire pour le metier" type="input" required/>
+                <input name="name2" id="sks_name" class="form-element-field" placeholder="Compétence secondaire pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sks_name">Nom</label>
+                <?php echo form_error('name2', '<p class="error">', '</p>') ?>
             </div>
 
         </fieldset>
@@ -75,14 +77,15 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="Form/traitementSkillO" method="post">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillO" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence organisationelle</legend>
 
             <div class="form-element form-input">
-                <input id="sko_name" class="form-element-field" placeholder="Compétence organisationelle pour le metier" type="input" required/>
+                <input name="name3" id="sko_name" class="form-element-field" placeholder="Compétence organisationelle pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_name">Nom</label>
+                <?php echo form_error('name3', '<p class="error">', '</p>') ?>
             </div>
 
         </fieldset>

@@ -46,13 +46,15 @@
             <div class="form-element form-input">
                 <input name="yearbegin" id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="exp_debut">Date début</label>
+                <label class="form-element-label" for="exp_debut">Date de début</label>
+                <?php echo form_error('yearbegin', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
                 <input name="yearend" id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date de fin</label>
+                <?php echo form_error('yearend', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-textarea">
@@ -64,7 +66,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <button id="button" data-name="formation.html" class="form-btn" type="button">Suivant</button>
+            <a href="step3-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" name="submitted" type="submit">Ajouter experience</button>
         </div>
     </form>

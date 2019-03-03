@@ -11,12 +11,12 @@ class Model_Skill_P extends CI_Model
         return $this->db->select('*')->from('cvp_c_skill_m')->where('cvp_c_cv_id', $idcv);
     }
 
-    public function add($name/*, $idcv*/)
+    public function add($name, $idcv)
     {
 
         $data = array(
-            'name' => $name/*,
-            'cvp_c_cv_id' => $idcv*/
+            'name' => $name,
+            'cvp_c_cv_id' => $idcv
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout

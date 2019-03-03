@@ -25,10 +25,11 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementEducation" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une formation</legend>
 
+            <!--
             <div class="form-element form-select">
                 <select id="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r" class="form-element-field">
                     <option disabled selected value="" class="form-select-placeholder"></option>
@@ -38,43 +39,51 @@
                     <option value="IV">IV ex : Bac</option>
                     <option value="V">V ex : Brevet des collèges</option>
                 </select>
+
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">Selectionner niveau de la formation</label>
             </div>
+            -->
 
             <div class="form-element form-input">
-                <input id="exp_metier" class="form-element-field" placeholder="ex : BTS Vente" type="input" required/>
+                <input name="diploma" id="exp_metier" class="form-element-field" placeholder="ex : BTS Vente" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_metier">Nom de la formation</label>
+                <?php echo form_error('diploma', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'école" type="input" required/>
+                <input name="school" id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'école" type="input" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="exp_entreprise">Ecole</label>
+                <label class="form-element-label" for="exp_entreprise">École</label>
+                <?php echo form_error('school', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" required/>
+                <input name="yearbegin" id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="exp_debut">Date début</label>
+                <label class="form-element-label" for="exp_debut">Date de début</label>
+                <?php echo form_error('yearbegin', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input id="exp_fin" class="form-element-field" placeholder="Remplir avec la date du début" type="date" required/>
+                <input name="yearend" id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date de fin</label>
+                <?php echo form_error('yearend', '<p class="error">', '</p>') ?>
             </div>
 
+            <!--
             <div class="form-element form-textarea">
                 <textarea id="exp_description" class="form-element-field" placeholder="Ce que cette formation vous a apporté"></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_description">Description</label>
             </div>
+            -->
 
         </fieldset>
         <div class="form-actions">
-            <button id="button" data-name="skill.html" class="form-btn" type="button">Suivant</button>
+            <a href="step4-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une formation </button>
         </div>
     </form>

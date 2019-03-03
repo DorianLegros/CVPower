@@ -11,15 +11,15 @@ class Model_Education extends CI_Model
         return $this->db->select('*')->from('cvp_c_education')->where('cvp_c_cv_id', $idcv);
     }
 
-    public function add($school, $diploma, $yearbegin, $yearend/*, $idcv*/)
+    public function add($school, $diploma, $yearbegin, $yearend, $idcv)
     {
 
         $data = array(
             'school' => $school,
             'diploma' => $diploma,
             'beginning' => $yearbegin,
-            'ending' => $yearend/*,
-            'cvp_c_cv_id' => $idcv*/
+            'ending' => $yearend,
+            'cvp_c_cv_id' => $idcv
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout
