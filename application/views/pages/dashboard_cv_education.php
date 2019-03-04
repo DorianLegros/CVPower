@@ -29,21 +29,21 @@
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une formation</legend>
 
-            <!--
             <div class="form-element form-select">
-                <select id="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r" class="form-element-field">
+                <select name="level" id="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r" class="form-element-field">
                     <option disabled selected value="" class="form-select-placeholder"></option>
-                    <option value="I">I ex : Master, doctorat</option>
-                    <option value="II">II ex : Licence</option>
-                    <option value="III">III ex : BTS, DUT...</option>
-                    <option value="IV">IV ex : Bac</option>
-                    <option value="V">V ex : Brevet des collèges</option>
+                    <option value="1">I ex : Master, doctorat</option>
+                    <option value="2">II ex : Licence</option>
+                    <option value="3">III ex : BTS, DUT...</option>
+                    <option value="4">IV ex : Bac</option>
+                    <option value="5">V ex : Brevet des collèges</option>
                 </select>
 
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">Selectionner niveau de la formation</label>
+                <label class="form-element-label" for="field-be1h8i-ll2hpg-q4efzm-nfjj1e-udkw5r">Selectionner le niveau de la formation</label>
+                <?php echo form_error('level', '<p class="error">', '</p>') ?>
+
             </div>
-            -->
 
             <div class="form-element form-input">
                 <input name="diploma" id="exp_metier" class="form-element-field" placeholder="ex : BTS Vente" type="input" />
@@ -73,13 +73,13 @@
                 <?php echo form_error('yearend', '<p class="error">', '</p>') ?>
             </div>
 
-            <!--
             <div class="form-element form-textarea">
-                <textarea id="exp_description" class="form-element-field" placeholder="Ce que cette formation vous a apporté"></textarea>
+                <textarea name="desc" id="exp_description" class="form-element-field" placeholder="Ce que cette formation vous a apporté"></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_description">Description</label>
+                <?php echo form_error('diploma', '<p class="error">', '</p>') ?>
+
             </div>
-            -->
 
         </fieldset>
         <div class="form-actions">
@@ -105,13 +105,13 @@
         <tbody>
         <?php foreach ($liste as $value){ ?>
         <tr>
-            <!--<td>I</td>-->
+            <td><?= $value['level'] ?></td>
             <td><strong><?= $value['diploma'] ?></strong></td>
             <td><?= $value['school'] ?></td>
             <td><?= $value['beginning'] ?></td>
             <td><?= $value['ending'] ?></td>
-            <!--<td>Blablabla bla</td>-->
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+            <td><?= $value['description'] ?></td>
+            <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionEducation/<?= $value['id'] ?>/"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
         <?php } ?>
         </tbody>

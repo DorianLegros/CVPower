@@ -77,21 +77,26 @@ class Forms extends CI_Controller
     }
 
     public function traitementEducation(){
+        $this->form_validation->set_rules('level','Sélectionner le niveau de la formation', 'required', array('required' => 'Veuillez remplir ce champ'));
         $this->form_validation->set_rules('diploma','Nom de la formation', 'required|min_length[3]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         $this->form_validation->set_rules('school','École', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
         $this->form_validation->set_rules('yearbegin','Date de début', 'required', array('required' => 'Veuillez remplir ce champ'));
         $this->form_validation->set_rules('yearend','Date de fin', 'required', array('required' => 'Veuillez remplir ce champ'));
+        $this->form_validation->set_rules('desc','Description', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+
 
         if($this->form_validation->run() == FALSE){
 
         }else {
+            $level = $this->input->post('level');
             $diploma = $this->input->post('diploma');
             $school = $this->input->post('school');
             $yearbegin = $this->input->post('yearbegin');
             $yearend = $this->input->post('yearend');
+            $desc = $this->input->post('desc');
             $idcv = $_SESSION['id_CV'];
 
-            $this->Model_Education->add($school, $diploma, $yearbegin, $yearend, $idcv);
+            $this->Model_Education->add($level, $school, $diploma, $yearbegin, $yearend, $desc, $idcv);
             header("Location: ../step3-create");
         }
         $data['title'] = "Création - Étape 3";
@@ -123,7 +128,7 @@ class Forms extends CI_Controller
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
         $this->load->view('templates/footer_dashboard');
-        $this->load->view('templates/foot', $data);
+        $this->load->view('templates/foot');
     }
 
     public function traitementSkillS(){
@@ -146,7 +151,7 @@ class Forms extends CI_Controller
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
         $this->load->view('templates/footer_dashboard');
-        $this->load->view('templates/foot', $data);
+        $this->load->view('templates/foot');
     }
 
     public function traitementSkillO(){
@@ -169,46 +174,101 @@ class Forms extends CI_Controller
         $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/dashboard_cv_skill');
         $this->load->view('templates/footer_dashboard');
-        $this->load->view('templates/foot', $data);
+        $this->load->view('templates/foot');
     }
 
     public function traitementLanguage(){
-        $this->form_validation->set_rules('name','Langue', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('name1','Langue', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('level[]', 'Niveau', 'required', array('required' => 'Veuillez remplir ce champ'));
         if($this->form_validation->run() == FALSE){
 
         }
         else {
-            //$name = $this->input->post('name');
-            $level = array();
-            foreach ($this->input->post('level') as $value){
-                $level[] = $value;
+            $name = $this->input->post('name1');
+            $level = $this->input->post('level');
+            if (isset($level['write'])) {
+                $write = 1;
+            } else {
+                $write = 0;
             }
-            echo $level;
+            $read = $this->input->post('read');
+            if (isset($level['read'])) {
+                $read = 1;
+            } else {
+                $read = 0;
+            }
+            $speak = $this->input->post('speak');
+            if (isset($level['speak'])) {
+                $speak = 1;
+            } else {
+                $speak = 0;
+            }
+            $idcv = $_SESSION['id_CV'];
+
+            $this->Model_Language->add($name, $write, $read, $speak, $idcv);
+            header("Location: ../step5-create");
 
         }
+        $data['title'] = "Création - Étape 5";
+        $data['liste1'] = $this->Model_Language->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Hobby->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Award->get($_SESSION['id_CV']);
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/navbar_dashboard');
+        $this->load->view('pages/dashboard_cv_others');
+        $this->load->view('templates/footer_dashboard');
+        $this->load->view('templates/foot');
     }
 
     public function traitementHobby(){
-        $this->form_validation->set_rules('name','Hobby', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('name2','Hobby', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
         if($this->form_validation->run() == FALSE){
 
         }
         else {
-            //$name = $this->input->post('name');
+            $name2 = $this->input->post('name2');
+            $idcv = $_SESSION['id_CV'];
 
-            //$this->Model_Hobby->add($name/*, $idcv*/);
+            //$this->Model_Hobby->add($name, $idcv);
+            header("Location: ../step5-create");
         }
+        $data['title'] = "Création - Étape 5";
+        $data['liste1'] = $this->Model_Language->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Hobby->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Award->get($_SESSION['id_CV']);
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/navbar_dashboard');
+        $this->load->view('pages/dashboard_cv_others');
+        $this->load->view('templates/footer_dashboard');
+        $this->load->view('templates/foot');
     }
 
     public function traitementAward(){
-        $this->form_validation->set_rules('name','Récompense', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('name3','Récompense', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('desc','Description', 'required', array('required' => 'Veuillez remplir ce champ'));
+        $this->form_validation->set_rules('year','Description', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
 
         }
         else {
-            //$name = $this->input->post('name');
+            $name = $this->input->post('name3');
+            $year = $this->input->post('year');
+            $desc = $this->input->post('desc');
+            $idcv = $_SESSION['id_CV'];
 
-            //$this->Model_Award->add($name/*, $idcv*/);
+            //$this->Model_Award->add($name, $idcv);
+            header("Location: ../step5-create");
         }
+        $data['title'] = "Création - Étape 5";
+        $data['liste1'] = $this->Model_Language->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Hobby->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Award->get($_SESSION['id_CV']);
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/navbar_dashboard');
+        $this->load->view('pages/dashboard_cv_others');
+        $this->load->view('templates/footer_dashboard');
+        $this->load->view('templates/foot');
     }
 }

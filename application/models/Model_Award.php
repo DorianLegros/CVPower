@@ -8,7 +8,7 @@ class Model_Award extends CI_Model
 
     public function get($idcv)
     {
-        $this->db->select('*')->from('cvp_c_award')->where('cvp_c_cv_id', $idcv);
+        $this->db->select('*')->from('cvp_c_award')->where('cvp_c_cv_id', $idcv)->where('status', TRUE);
         return $this->db->get()->result_array();
     }
 
@@ -44,7 +44,8 @@ class Model_Award extends CI_Model
     public function remove($id)
     {
         $data = array(
-            'status' => 0
+            'status' => 0,
+            'updated_at' => date('Y-m-d H:i:s')
         );
 
         //	On place sur le statut l'état "0" (archivé) à l'id sélectionné

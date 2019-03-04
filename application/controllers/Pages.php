@@ -139,6 +139,9 @@ class Pages extends CI_Controller
 
 
         $data['title'] = "Création - Étape 5";
+        $data['liste1'] = $this->Model_Language->get($_SESSION['id_CV']);
+        $data['liste2'] = $this->Model_Hobby->get($_SESSION['id_CV']);
+        $data['liste3'] = $this->Model_Award->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');

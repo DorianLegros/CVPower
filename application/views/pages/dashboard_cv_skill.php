@@ -30,7 +30,7 @@
         <?php foreach ($liste1 as $value){ ?>
         <tr>
             <td><strong><?= $value['name'] ?></strong></td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+            <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillP/<?= $value['id'] ?>/"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
         <?php } ?>
         </tbody>
@@ -70,7 +70,7 @@
         <?php foreach ($liste2 as $value){ ?>
         <tr>
             <td><strong><?= $value['name'] ?></strong></td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+            <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillS/<?= $value['id'] ?>/"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
 
         </tr>
         <?php } ?>
@@ -112,7 +112,7 @@
         <?php foreach ($liste3 as $value){ ?>
         <tr>
             <td><strong><?= $value['name'] ?></strong></td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+            <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillO/<?= $value['id'] ?>/"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
         <?php } ?>
         </tbody>

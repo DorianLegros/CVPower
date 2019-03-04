@@ -25,30 +25,32 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()">
+    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementLanguage" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une langue</legend>
 
             <div class="form-element form-input">
-                <input id="skm_name" class="form-element-field" placeholder="Francais, english..." type="input" required/>
+                <input name="name1" id="skm_name" value="<?php if(!empty($_POST['name1'])) {echo $_POST['name1'];} ?>" class="form-element-field" placeholder="Francais, english..." type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="skm_name">Langue</label>
+                <?php echo form_error('name1', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-checkbox form-checkbox-inline">
                 <div class="form-checkbox-legend">Niveau</div>
+                <?php echo form_error('level[]', '<p class="error">', '</p>') ?>
                 <label class="form-checkbox-label">
-                    <input name=rap class="form-checkbox-field" type="checkbox" />
+                    <input name="level[write]" class="form-checkbox-field" type="checkbox" />
                     <i class="form-checkbox-button"></i>
                     <span>Ecrit</span>
                 </label>
                 <label class="form-checkbox-label">
-                    <input name=pop class="form-checkbox-field" type="checkbox" />
+                    <input name="level[read]" class="form-checkbox-field" type="checkbox" />
                     <i class="form-checkbox-button"></i>
                     <span>Lu</span>
                 </label>
                 <label class="form-checkbox-label">
-                    <input name=rock class="form-checkbox-field" type="checkbox" />
+                    <input name="level[speak]" class="form-checkbox-field" type="checkbox" />
                     <i class="form-checkbox-button"></i>
                     <span>Parlé</span>
                 </label>
@@ -56,7 +58,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <button class="form-btn-cancel -nooutline" type="submit">Ajouter une langue</button>
+            <button name="submitted" class="form-btn-cancel -nooutline" type="submit">Ajouter une langue</button>
         </div>
     </form>
 </div>
@@ -73,14 +75,15 @@
         </tr>
         </thead>
         <tbody>
+        <?php foreach ($liste1 as $value){ ?>
         <tr>
-            <td><strong>Francais</strong></td>
-            <td>oui</td>
-            <td>oui</td>
-            <td>oui</td>
-            <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
+            <td><strong><?= $value['name'] ?></strong></td>
+            <td><?php if($value['lan_write'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+            <td><?php if($value['lan_read'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+            <td><?php if($value['lan_speak'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+            <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionLanguage/<?= $value['id'] ?>/"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
         </tr>
+        <?php } ?>
         </tbody>
     </table>
 
@@ -93,15 +96,9 @@
             <legend class="form-legend">Ajouter un hobby</legend>
 
             <div class="form-element form-input">
-                <input id="sks_name" class="form-element-field" placeholder="ex : sport..." type="input" required/>
+                <input name="name2" id="sks_name" class="form-element-field" placeholder="ex : sport..." type="input" required/>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sks_name">Nom</label>
-            </div>
-
-            <div class="form-element form-textarea">
-                <textarea id="sks_description" class="form-element-field" placeholder=""></textarea>
-                <div class="form-element-bar"></div>
-                <label class="form-element-label" for="sks_description">Description</label>
             </div>
 
         </fieldset>
@@ -126,7 +123,6 @@
             <td><strong>Hobby</strong></td>
             <td>Blablabla bla</td>
             <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
         </tr>
         </tbody>
     </table>
@@ -145,8 +141,14 @@
                 <label class="form-element-label" for="sko_name">Nom</label>
             </div>
 
+            <div class="form-element form-input">
+                <input name="year" id="exp_fin" class="form-element-field" placeholder="Date d'obtention" type="date" />
+                <div class="form-element-bar"></div>
+                <label class="form-element-label" for="exp_fin">Date de fin</label>
+            </div>
+
             <div class="form-element form-textarea">
-                <textarea id="sko_description" class="form-element-field" placeholder=""></textarea>
+                <textarea name="desc" id="sko_description" class="form-element-field" placeholder=""></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_description">Description</label>
             </div>
