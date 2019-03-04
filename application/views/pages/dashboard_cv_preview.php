@@ -204,28 +204,9 @@
             <?php } ?>
             </tbody>
         </table>
-
-        <form class="form-card" onsubmit="return sure()">
-            <fieldset class="form-fieldset">
-                <legend class="form-legend">Votre CV est bientot terminé</legend>
-
-                <div class="form-element form-input">
-                    <input id="sko_name" class="form-element-field" placeholder="" type="input" required/>
-                    <div class="form-element-bar"></div>
-                    <label class="form-element-label" for="sko_name">Couleur</label>
-                </div>
-
-                <div class="form-element form-textarea">
-                    <textarea id="sko_description" class="form-element-field" placeholder="Voulez vous le publier maintenant ?"></textarea>
-                    <div class="form-element-bar"></div>
-                    <label class="form-element-label" for="sko_description">Publication</label>
-                </div>
-
-            </fieldset>
-            <div class="form-actions">
-                <button id="button" class="form-btn" type="submit">Valider</button>
-            </div>
-        </form>
+        <div class="form-actions">
+            <a href="Actions/validationFormulaire"><button id="button" class="form-btn" type="submit">Valider</button></a>
+        </div>
     </div>
 
 

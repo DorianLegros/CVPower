@@ -97,7 +97,7 @@
             <legend class="form-legend">Ajouter un hobby</legend>
 
             <div class="form-element form-input">
-                <input name="name2" id="sks_name" class="form-element-field" placeholder="ex : sport..." type="input" />
+                <input name="name2" id="sks_name" class="form-element-field" value="<?php if(!empty($_POST['name2'])) {echo $_POST['name2'];} ?>" placeholder="ex : sport..." type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sks_name">Nom</label>
                 <?php echo form_error('name2', '<p class="error">', '</p>') ?>
@@ -138,21 +138,21 @@
             <legend class="form-legend">Ajouter une récompense</legend>
 
             <div class="form-element form-input">
-                <input name="name3" id="sko_name" class="form-element-field" placeholder="1er concours d'echec" type="input" />
+                <input name="name3" id="sko_name" class="form-element-field" value="<?php if(!empty($_POST['name3'])) {echo $_POST['name3'];} ?>" placeholder="1er concours d'echec" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_name">Nom</label>
                 <?php echo form_error('name3', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input name="year" id="exp_fin" class="form-element-field" placeholder="Date d'obtention" type="date" />
+                <input name="year" id="exp_fin" class="form-element-field" value="<?php if(!empty($_POST['year'])) {echo $_POST['year'];} ?>" placeholder="Date d'obtention" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date</label>
                 <?php echo form_error('year', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-textarea">
-                <textarea name="desc" id="sko_description" class="form-element-field" placeholder=""></textarea>
+                <textarea name="desc" id="sko_description" class="form-element-field" placeholder=""><?php if(!empty($_POST['diploma'])) {echo $_POST['diploma'];} ?></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_description">Description</label>
                 <?php echo form_error('desc', '<p class="error">', '</p>') ?>

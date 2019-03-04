@@ -31,7 +31,7 @@
             <legend class="form-legend">Ajouter un CV</legend>
 
             <div class="form-element form-input">
-                <input name="name" id="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9" class="form-element-field" placeholder="Le nom du CV" type="input" />
+                <input name="name" id="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9" class="form-element-field" value="<?php if(!empty($_POST['name'])) {echo $_POST['name'];} ?>" placeholder="Le nom du CV" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Nom</label>
                 <?php echo form_error('name', '<p class="error">', '</p>') ?>
@@ -39,7 +39,7 @@
 
 
             <div class="form-element form-textarea">
-                <textarea name="description" id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" class="form-element-field" placeholder=" "></textarea>
+                <textarea name="description" id="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm" value="<?php if(!empty($_POST['description'])) {echo $_POST['description'];} ?>" class="form-element-field" placeholder=" "></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Description</label>
                 <?php echo form_error('description', '<p class="error">', '</p>') ?>

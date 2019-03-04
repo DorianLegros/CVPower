@@ -92,4 +92,9 @@ class Actions extends CI_Controller
             header("Location: ../../../step5-create");
         }
     }
+
+    public function validationFormulaire() {
+        unset($_SESSION['id_CV']);
+        header("Location: ../dashboard");
+    }
 }

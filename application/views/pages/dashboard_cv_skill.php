@@ -5,7 +5,7 @@
             <legend class="form-legend">Ajouter une compétence principale</legend>
 
             <div class="form-element form-input">
-                <input name="name1" id="skm_name" class="form-element-field" placeholder="Compétence principale pour le metier" type="input" />
+                <input name="name1" id="skm_name" class="form-element-field" value="<?php if(!empty($_POST['name1'])) {echo $_POST['name1'];} ?>" placeholder="Compétence principale pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="skm_name">Nom</label>
                 <?php echo form_error('name1', '<p class="error">', '</p>') ?>
@@ -45,7 +45,7 @@
             <legend class="form-legend">Ajouter une compétence secondaire</legend>
 
             <div class="form-element form-input">
-                <input name="name2" id="sks_name" class="form-element-field" placeholder="Compétence secondaire pour le metier" type="input" />
+                <input name="name2" id="sks_name" class="form-element-field" value="<?php if(!empty($_POST['name2'])) {echo $_POST['name2'];} ?>" placeholder="Compétence secondaire pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sks_name">Nom</label>
                 <?php echo form_error('name2', '<p class="error">', '</p>') ?>
@@ -86,7 +86,7 @@
             <legend class="form-legend">Ajouter une compétence organisationelle</legend>
 
             <div class="form-element form-input">
-                <input name="name3" id="sko_name" class="form-element-field" placeholder="Compétence organisationelle pour le metier" type="input" />
+                <input name="name3" id="sko_name" class="form-element-field" value="<?php if(!empty($_POST['name3'])) {echo $_POST['name3'];} ?>" placeholder="Compétence organisationelle pour le metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_name">Nom</label>
                 <?php echo form_error('name3', '<p class="error">', '</p>') ?>

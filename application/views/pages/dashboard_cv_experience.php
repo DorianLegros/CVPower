@@ -29,35 +29,35 @@
             <legend class="form-legend">Ajouter une expérience</legend>
 
             <div class="form-element form-input">
-                <input name="job" id="exp_metier" class="form-element-field" placeholder="Remplir avec un metier" type="input" />
+                <input name="job" id="exp_metier" class="form-element-field" value="<?php if(!empty($_POST['job'])) {echo $_POST['job'];} ?>" placeholder="Remplir avec un metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_metier">Métier</label>
                 <?php echo form_error('job', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input name="company" id="exp_entreprise" class="form-element-field" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" />
+                <input name="company" id="exp_entreprise" class="form-element-field" value="<?php if(!empty($_POST['company'])) {echo $_POST['company'];} ?>" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_entreprise">Entreprise</label>
                 <?php echo form_error('company', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input name="yearbegin" id="exp_debut" class="form-element-field" placeholder="Remplir avec la date du début" type="date" />
+                <input name="yearbegin" id="exp_debut" class="form-element-field" value="<?php if(!empty($_POST['yearbegin'])) {echo $_POST['yearbegin'];} ?>" placeholder="Remplir avec la date du début" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_debut">Date de début</label>
                 <?php echo form_error('yearbegin', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input name="yearend" id="exp_fin" class="form-element-field" placeholder="Remplir avec la date de fin" type="date" />
+                <input name="yearend" id="exp_fin" class="form-element-field" value="<?php if(!empty($_POST['yearend'])) {echo $_POST['yearend'];} ?>" placeholder="Remplir avec la date de fin" type="date" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_fin">Date de fin</label>
                 <?php echo form_error('yearend', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-textarea">
-                <textarea name="desc" id="exp_description" class="form-element-field" placeholder="Ce que cette expérience vous a apporté"></textarea>
+                <textarea name="desc" id="exp_description" class="form-element-field" placeholder="Ce que cette expérience vous a apporté"><?php if(!empty($_POST['desc'])) {echo $_POST['desc'];} ?></textarea>
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_description">Description</label>
                 <?php echo form_error('desc', '<p class="error">', '</p>') ?>

@@ -8,5 +8,5 @@ Tableau des CV, modal modif, profile, bouton création de CV
 ?>
 
 <body>
-
+<?php print_r($_SESSION); ?>
 <h1><?php echo $title; ?></h1>
