@@ -226,10 +226,10 @@ class Forms extends CI_Controller
 
         }
         else {
-            $name2 = $this->input->post('name2');
+            $name = $this->input->post('name2');
             $idcv = $_SESSION['id_CV'];
 
-            //$this->Model_Hobby->add($name, $idcv);
+            $this->Model_Hobby->add($name, $idcv);
             header("Location: ../step5-create");
         }
         $data['title'] = "Création - Étape 5";
@@ -246,8 +246,8 @@ class Forms extends CI_Controller
 
     public function traitementAward(){
         $this->form_validation->set_rules('name3','Récompense', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
-        $this->form_validation->set_rules('desc','Description', 'required', array('required' => 'Veuillez remplir ce champ'));
-        $this->form_validation->set_rules('year','Description', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('desc','Description', 'required|max_length[255]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('year','Description', 'required', array('required' => 'Veuillez remplir ce champ'));
         if($this->form_validation->run() == FALSE){
 
         }
@@ -257,7 +257,7 @@ class Forms extends CI_Controller
             $desc = $this->input->post('desc');
             $idcv = $_SESSION['id_CV'];
 
-            //$this->Model_Award->add($name, $idcv);
+            $this->Model_Award->add($name, $desc, $year, $idcv);
             header("Location: ../step5-create");
         }
         $data['title'] = "Création - Étape 5";

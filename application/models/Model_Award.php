@@ -12,14 +12,14 @@ class Model_Award extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function add($name, $desc, $year/*, $idcv*/)
+    public function add($name, $desc, $year, $idcv)
     {
 
         $data = array(
             'name' => $name,
             'description' => $desc,
-            'year' => $year/*,
-            'cvp_c_cv_id' => $idcv*/
+            'year' => $year,
+            'cvp_c_cv_id' => $idcv
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout

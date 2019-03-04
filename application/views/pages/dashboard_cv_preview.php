@@ -44,7 +44,7 @@
                 <td><?= $value['beginning'] ?></td>
                 <td><?= $value['ending'] ?></td>
                 <td><?= $value['description'] ?></td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionExperience/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
             <?php } ?>
             </tbody>
@@ -67,13 +67,13 @@
             <tbody>
             <?php foreach ($liste_edu as $value){ ?>
             <tr>
-                <!--<td>I</td>-->
+                <td><?= $value['level'] ?></td>
                 <td><strong><?= $value['diploma'] ?></strong></td>
                 <td><?= $value['school'] ?></td>
                 <td><?= $value['beginning'] ?></td>
                 <td><?= $value['ending'] ?></td>
-                <!--<td>Blablabla bla</td>-->
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                <td><?= $value['description'] ?></td>
+                <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionEducation/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
             <?php } ?>
             </tbody>
@@ -93,7 +93,7 @@
             <?php foreach ($liste_sklp as $value){ ?>
             <tr>
                 <td><strong><?= $value['name'] ?></strong></td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillP/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
             <?php } ?>
             </tbody>
@@ -113,7 +113,7 @@
             <?php foreach ($liste_skls as $value){ ?>
                 <tr>
                     <td><strong><?= $value['name'] ?></strong></td>
-                    <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                    <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillS/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -133,7 +133,7 @@
             <?php foreach ($liste_sklo as $value){ ?>
                 <tr>
                     <td><strong><?= $value['name'] ?></strong></td>
-                    <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                    <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionSkillO/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
                 </tr>
             <?php } ?>
             </tbody>
@@ -152,14 +152,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><strong>Francais</strong></td>
-                <td>oui</td>
-                <td>oui</td>
-                <td>oui</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
-            </tr>
+            <?php foreach ($liste_lang as $value){ ?>
+                <tr>
+                    <td><strong><?= $value['name'] ?></strong></td>
+                    <td><?php if($value['lan_write'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+                    <td><?php if($value['lan_read'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+                    <td><?php if($value['lan_speak'] == 1) {echo "Oui";} else {echo "Non";} ?></td>
+                    <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionLanguage/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
 
@@ -169,34 +170,38 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <th>Description</th>
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($liste_hobby as $value){ ?>
             <tr>
-                <td><strong>Hobby</strong></td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-
+                <td><strong><?= $value['name'] ?></strong></td>
+                <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionHobby/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
+            <?php } ?>
             </tbody>
         </table>
 
-        <h3 class="pre-title">Recompences</h3>
+        <h3 class="pre-title">Récompenses</h3>
 
         <table>
             <thead>
             <tr>
                 <th>Nom</th>
+                <th>Date</th>
                 <th>Description</th>
+                <th>Supprimer</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><strong>Récompense</strong></td>
-                <td>Blablabla bla</td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
-            </tr>
+            <?php foreach ($liste_award as $value){ ?>
+                <tr>
+                    <td><strong><?= $value['name'] ?></strong></td>
+                    <td><?= $value['year'] ?></td>
+                    <td><?= $value['description'] ?></td>
+                    <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ceci ?');" href="<?php if(validation_errors()) { echo "../";} else ?>Actions/suppressionAward/<?= $value['id'] ?>/final"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
+                </tr>
+            <?php } ?>
             </tbody>
         </table>
 

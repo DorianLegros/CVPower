@@ -12,12 +12,12 @@ class Model_Hobby extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    public function add($name/*, $idcv*/)
+    public function add($name, $idcv)
     {
 
         $data = array(
-            'name' => $name/*,
-            'cvp_c_cv_id' => $idcv*/
+            'name' => $name,
+            'cvp_c_cv_id' => $idcv
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout

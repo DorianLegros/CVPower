@@ -22,43 +22,74 @@ class Actions extends CI_Controller
         //à changer vers le bon chemin header("Location: ../../../step1-create");
     }
 
-    public function suppressionExperience($id){
+    public function suppressionExperience($id, $state){
         $this->Model_Experience->remove($id);
-        header("Location: ../../../step2-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step2-create");
+        }
     }
 
-    public function suppressionEducation($id){
+    public function suppressionEducation($id, $state){
         $this->Model_Education->remove($id);
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else
         header("Location: ../../../step3-create");
     }
 
-    public function suppressionSkillP($id){
+    public function suppressionSkillP($id, $state){
         $this->Model_Skill_P->remove($id);
-        header("Location: ../../../step4-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step4-create");
+        }
     }
 
-    public function suppressionSkillS($id){
+    public function suppressionSkillS($id, $state){
         $this->Model_Skill_S->remove($id);
-        header("Location: ../../../step4-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step4-create");
+        }
     }
 
-    public function suppressionSkillO($id){
+    public function suppressionSkillO($id, $state){
         $this->Model_Skill_O->remove($id);
-        header("Location: ../../../step4-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step4-create");
+        }
     }
 
-    public function suppressionLanguage($id){
+    public function suppressionLanguage($id, $state){
         $this->Model_Language->remove($id);
-        header("Location: ../../../step5-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step5-create");
+        }
     }
 
-    public function suppressionHobby($id){
+    public function suppressionHobby($id, $state){
         $this->Model_Hobby->remove($id);
-        header("Location: ../../../step5-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step5-create");
+        }
     }
 
-    public function suppressionAward($id){
+    public function suppressionAward($id, $state){
         $this->Model_Award->remove($id);
-        header("Location: ../../../step5-create");
+        if ($state == "final") {
+            header("Location: ../../../finalisation-create");
+        } else {
+            header("Location: ../../../step5-create");
+        }
     }
 }
