@@ -18,6 +18,7 @@ class Pages extends CI_Controller
         $this->load->library('form_validation');
         $this->load->library(array('session'));
         $this->load->helper('url');
+
     }
 
 
