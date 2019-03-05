@@ -29,7 +29,7 @@ class Sendingemail_controller extends CI_Controller {
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
 
-        if (!empty($to_email) ) {
+        if (!empty($to_email)) {
             $user_token = $this->user_model->get_token_from_user_mail($to_email);
             $user_id = $this->user_model->get_user_id_from_user_mail($to_email);
         }

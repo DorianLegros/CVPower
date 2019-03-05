@@ -20,6 +20,7 @@ class Forms extends CI_Controller
         $this->load->model('Model_Language');
         $this->load->model('Model_Hobby');
         $this->load->model('Model_Award');
+        $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
         $this->load->helper('url');
@@ -37,7 +38,9 @@ class Forms extends CI_Controller
             $this->load->view('templates/foot');
         }else {
             $name = $this->input->post('name');
+            $name = $this->security->xss_clean($name);
             $desc = $this->input->post('description');
+            $desc = $this->security->xss_clean($desc);
             $iduser = $_SESSION['id'];
 
             $this->Model_CV->add($name, $desc, $iduser);
@@ -58,10 +61,13 @@ class Forms extends CI_Controller
         }else {
             //Récupération des entrées du form
             $job = $this->input->post('job');
+            $job = $this->security->xss_clean($job);
             $company = $this->input->post('company');
+            $company = $this->security->xss_clean($company);
             $yearbegin = $this->input->post('yearbegin');
             $yearend = $this->input->post('yearend');
             $desc = $this->input->post('desc');
+            $desc = $this->security->xss_clean($desc);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Experience->add($job, $company, $yearbegin, $yearend, $desc, $idcv);
@@ -90,10 +96,13 @@ class Forms extends CI_Controller
         }else {
             $level = $this->input->post('level');
             $diploma = $this->input->post('diploma');
+            $diploma = $this->security->xss_clean($diploma);
             $school = $this->input->post('school');
+            $school = $this->security->xss_clean($school);
             $yearbegin = $this->input->post('yearbegin');
             $yearend = $this->input->post('yearend');
             $desc = $this->input->post('desc');
+            $desc = $this->security->xss_clean($desc);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Education->add($level, $school, $diploma, $yearbegin, $yearend, $desc, $idcv);
@@ -115,6 +124,7 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name1');
+            $name = $this->security->xss_clean($name);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Skill_P->add($name, $idcv);
@@ -138,6 +148,7 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name2');
+            $name = $this->security->xss_clean($name);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Skill_S->add($name, $idcv);
@@ -161,6 +172,7 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name3');
+            $name = $this->security->xss_clean($name);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Skill_O->add($name, $idcv);
@@ -185,6 +197,7 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name1');
+            $name = $this->security->xss_clean($name);
             $level = $this->input->post('level');
             if (isset($level['write'])) {
                 $write = 1;
@@ -227,6 +240,7 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name2');
+            $name = $this->security->xss_clean($name);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Hobby->add($name, $idcv);
@@ -253,8 +267,10 @@ class Forms extends CI_Controller
         }
         else {
             $name = $this->input->post('name3');
+            $name = $this->security->xss_clean($name);
             $year = $this->input->post('year');
             $desc = $this->input->post('desc');
+            $desc = $this->security->xss_clean($desc);
             $idcv = $_SESSION['id_CV'];
 
             $this->Model_Award->add($name, $desc, $year, $idcv);
@@ -270,5 +286,31 @@ class Forms extends CI_Controller
         $this->load->view('pages/dashboard_cv_others');
         $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot');
+    }
+
+    public function traitementProfile(){
+        $this->form_validation->set_rules('lastname','Nom', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('name','Prénom', 'required|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('phone','Téléphone', 'required|min_length[10]|max_length[10]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Numéro de téléphone non valide', 'max_length' => 'Numéro de téléphone non valide'));
+        if($this->form_validation->run() == FALSE){
+            $data['title'] = "Profil utilisateur";
+            $data['liste'] = $this->User_model->get($_SESSION['id']);
+
+            $this->load->view('templates/head', $data);
+            $this->load->view('templates/navbar_dashboard');
+            $this->load->view('pages/dashboard_user_profile');
+            $this->load->view('templates/footer_dashboard');
+            $this->load->view('templates/foot');
+        }
+        else {
+            $name = $this->input->post('name');
+            $lastname = $this->input->post('lastname');
+            $phone = $this->input->post('phone');
+            $driving = $this->input->post('driving');
+            $iduser = $_SESSION['id'];
+
+            $this->User_model->modifProfil($iduser, $name, $lastname, $phone, $driving);
+            header('Location: ../dashboard');
+        }
     }
 }
