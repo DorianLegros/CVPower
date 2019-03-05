@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'Pages/viewHome';
 $route['dashboard'] = 'Pages/viewDashboard';
+$route['profile'] = 'Pages/viewUserProfile';
 $route['step1-create'] = 'Pages/viewCvStart';
 $route['step2-create'] = 'Pages/viewCvExperience';
 $route['step3-create'] = 'Pages/viewCvEducation';

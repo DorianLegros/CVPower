@@ -14,6 +14,7 @@ class Pages extends CI_Controller
         $this->load->model('Model_Language');
         $this->load->model('Model_Hobby');
         $this->load->model('Model_Award');
+        $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
         $this->load->helper('url');
@@ -43,6 +44,23 @@ class Pages extends CI_Controller
         }
 
         $data['title'] = "Tableau de bord";
+        $data['liste'] = $this->User_model->get($_SESSION['id']);
+        $data['liste2'] = $this->Model_CV->get($_SESSION['id']);
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('templates/navbar_dashboard');
+        $this->load->view('pages/'.$page, $data);
+        $this->load->view('templates/footer_dashboard');
+        $this->load->view('templates/foot', $data);
+    }
+
+    public function viewUserProfile($page = "dashboard_user_profile"){
+        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+            show_404();
+        }
+
+        $data['title'] = "Profil utilisateur";
+        $data['liste'] = $this->User_model->get($_SESSION['id']);
 
         $this->load->view('templates/head', $data);
         $this->load->view('templates/navbar_dashboard');

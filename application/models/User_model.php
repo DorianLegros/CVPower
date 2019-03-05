@@ -117,4 +117,23 @@ class User_model extends CI_Model {
 
     }
 
+    public function get($id){
+        $this->db->select('*')->from('cvp_c_profile')->where('id', $id);
+        return $this->db->get()->result_array();
+    }
+
+    public function modifProfil($id, $name, $lastname, $phone, $driving) {
+
+        $data = array(
+            'lastname' => $lastname,
+            'name' => $name,
+            'phone_number' => $phone,
+            'driving_licence' => $driving,
+            'updated_at' => date('Y-m-d H:i:s')
+        );
+
+        //	Une fois que tous les champs ont bien été définis, on "update" le tout
+        $this->db->where('id', $id);
+        $this->db->update('cvp_c_profile', $data);
+    }
 }

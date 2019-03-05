@@ -14,12 +14,21 @@ class Actions extends CI_Controller
         $this->load->model('Model_Language');
         $this->load->model('Model_Hobby');
         $this->load->model('Model_Award');
+        $this->load->library(array('session'));
         $this->load->helper('url');
     }
 
     public function suppressionCV($id){
         $this->Model_CV->remove($id);
-        //à changer vers le bon chemin header("Location: ../../../step1-create");
+        $this->Model_Award->removeCV($id);
+        $this->Model_Education->removeCV($id);
+        $this->Model_Experience->removeCV($id);
+        $this->Model_Hobby->removeCV($id);
+        $this->Model_Language->removeCV($id);
+        $this->Model_Skill_O->removeCV($id);
+        $this->Model_Skill_P->removeCV($id);
+        $this->Model_Skill_S->removeCV($id);
+        header("Location: ../../../dashboard");
     }
 
     public function suppressionExperience($id, $state){
