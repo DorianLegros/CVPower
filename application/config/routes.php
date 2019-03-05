@@ -54,13 +54,14 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['home'] = 'Pages/viewHome';
 $route['dashboard'] = 'Pages/viewDashboard';
+$route['profile'] = 'Pages/viewUserProfile';
 $route['step1-create'] = 'Pages/viewCvStart';
 $route['step2-create'] = 'Pages/viewCvExperience';
 $route['step3-create'] = 'Pages/viewCvEducation';
 $route['step4-create'] = 'Pages/viewCvSkill';
 $route['step5-create'] = 'Pages/viewCvOther';
 $route['finalisation-create'] = 'Pages/viewCvPreview';
-$route['view']= 'Pages/viewCvView';
+$route['view'] = 'Pages/viewCvView';
 
 $route['register'] = 'user/register';
 $route['login'] = 'user/login';
