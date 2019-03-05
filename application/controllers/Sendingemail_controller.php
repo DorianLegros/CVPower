@@ -40,7 +40,7 @@ class Sendingemail_controller extends CI_Controller {
         $this->email->to($to_email);
         $this->email->cc("cvpower2019@gmail.com");
         $this->email->subject('Réinitialisation mot de passe');
-        $this->email->message("Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien http://localhost/CVPower/resetpassword/" . $user_token);
+        $this->email->message("Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien http://localhost/cvpower/resetpassword/" . $user_token);
         //Send mail
         if($this->email->send())
             $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");

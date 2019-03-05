@@ -152,12 +152,6 @@ class User_model extends CI_Model {
     }
 
 
-
-	
-}
-
-
-
     public function get($id){
         $this->db->select('*')->from('cvp_c_profile')->where('id', $id);
         return $this->db->get()->result_array();
@@ -177,7 +171,5 @@ class User_model extends CI_Model {
         $this->db->update('cvp_c_profile', $data);
     }
 
-
-	
 }
 
