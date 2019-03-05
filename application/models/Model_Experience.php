@@ -23,7 +23,7 @@ class Model_Experience
         $this->db->insert('cvp_c_experience', $data);
     }
 
-    public function update($id, $job, $company, $yearbegin, $yearend, $desc, $yearend)
+    public function update($id, $job, $company, $yearbegin, $yearend, $desc)
     {
 
         $data = array(

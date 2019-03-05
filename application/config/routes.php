@@ -65,3 +65,5 @@ $route['view']= 'Pages/viewCvView';
 $route['register'] = 'user/register';
 $route['login'] = 'user/login';
 $route['logout'] = 'user/logout';
+$route['resetpassword/(:any)'] = 'User/resetpassword/$1';
+$route['email'] = 'Sendingemail_controller';

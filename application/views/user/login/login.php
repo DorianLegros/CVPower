@@ -31,6 +31,9 @@
 				<div class="form-group">
 					<input type="submit" class="btn btn-default" value="Connexion">
 				</div>
+                <div class="form-group">
+                    <a href="email">Reset de mot de passe</a>
+                </div>
 			</form>
 		</div>
 	</div><!-- .row -->
