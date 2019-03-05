@@ -2,6 +2,10 @@
 
 class Model_Experience
 {
+    public function construct(){
+        parent::construct();
+    }
+
     public function get($idcv)
     {
         return $this->db->select('*')->from('cvp_c_experience')->where('cvp_c_cv_id', $idcv);

@@ -2,19 +2,22 @@
 
 class Model_CV extends CI_Model
 {
+    public function construct(){
+        parent::construct();
+    }
 
     public function get($iduser)
     {
         return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser);
     }
 
-    public function add($name, $desc/*, $iduser*/)
+    public function add($name, $desc, $iduser)
     {
 
         $data = array(
             'name' => $name,
-            'description' => $desc/*,
-            'cvp_c_profile_id' => $iduser*/
+            'description' => $desc,
+            'cvp_c_profile_id' => $iduser
         );
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout

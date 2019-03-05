@@ -8,6 +8,10 @@
 
 class Model_Skill_O
 {
+    public function construct(){
+        parent::construct();
+    }
+
     public function get($idcv)
     {
         return $this->db->select('*')->from('cvp_c_skill_o')->where('cvp_c_cv_id', $idcv);

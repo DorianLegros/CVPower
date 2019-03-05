@@ -64,9 +64,9 @@ class Pages extends CI_Controller
         }else {
             $name = $this->input->post('name');
             $desc = $this->input->post('description');
-            //$iduser = methode de batou
+            $iduser = $_SESSION['id'];
 
-            $this->Model_CV->add($name, $desc/*, $iduser*/);
+            $this->Model_CV->add($name, $desc, $iduser);
             header("Location: step2-create");
         }
 
@@ -88,20 +88,18 @@ class Pages extends CI_Controller
             show_404();
         }
 
-
-        //Règles du formulaire à définir
-        //$this->form_validation->set_rules('job','Métier', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        //$this->form_validation->set_rules('entreprise','Nome de l'entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
-        //$this->form_validation->set_rules('desc','Description du poste', 'min_length[5]|max_length[255]', array('min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('job','Métier', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('company','Nome de l\'entreprise', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('desc','Description du poste', 'min_length[5]|max_length[255]', array('min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
         if($this->form_validation->run() == FALSE){
 
         }else {
             //Récupération des entrées du form
-            //$job = $this->input->post('name');
-            //$company = $this->input->post('entreprise');
-            //$yearbegin = $this->input->post('anneedebut');
-            //$yearend = $this->input->post('anneefin');
-            //$desc = $this->input->post('description');
+            //$job = $this->input->post('job');
+            //$company = $this->input->post('company');
+            //$yearbegin = $this->input->post('yearbegin');
+            //$yearend = $this->input->post('yearend');
+            //$desc = $this->input->post('desc');
             //$idcv = à faire avec le guide URI Routing
 
             //$this->Model_Experience->add($name, $desc/*, $idcv*/);
@@ -127,10 +125,8 @@ class Pages extends CI_Controller
 
 
         //Règles du formulaire à définir
-        //$this->form_validation->set_rules('name','Formation', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        //$this->form_validation->set_rules('school','Nom de l'école', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
-        //$this->form_validation->set_rules('desc','Description', 'min_length[5]|max_length[45]', array('min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        /* possible controlleur pour le traitement du nombre d'entrée saisi */
+        $this->form_validation->set_rules('diploma','Formation', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
+        $this->form_validation->set_rules('school','Nom de l\'école', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
 
         }else {
