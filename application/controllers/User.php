@@ -1,13 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 /**
  * User class.
- * 
+ *
  * @extends CI_Controller
  */
 class User extends CI_Controller {
-
+   
 	/**
 	 * __construct function.
 	 * 
@@ -25,8 +24,6 @@ class User extends CI_Controller {
 	
 	
 	public function index() {
-		
-
 		
 	}
 	
@@ -74,7 +71,7 @@ class User extends CI_Controller {
 			} else {
 				
 				// user creation failed, this should never happen
-				$data->error = 'There was a problem creating your new account. Please try again.';
+				$data->error = 'Il y a un problème lors de la création de votre compte, merci de réessayer';
 				
 				// send error to the view
 				$this->load->view('header');
@@ -124,6 +121,11 @@ class User extends CI_Controller {
 				
 				$user_id = $this->user_model->get_user_id_from_user_mail($user_mail);
 				$user    = $this->user_model->get_user($user_id);
+
+                // user login ok
+                $this->load->view('header');
+                $this->load->view('user/login/login_success', $data);
+                $this->load->view('footer');
 				
 				// set session user datas
 				$_SESSION['id']      = (int)$user->id;
@@ -132,15 +134,13 @@ class User extends CI_Controller {
 //				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 //				$_SESSION['is_admin']     = (bool)$user->is_admin;
 				
-				// user login ok
-				$this->load->view('header');
-				$this->load->view('user/login/login_success', $data);
-				$this->load->view('footer');
+
+
 				
 			} else {
 				
 				// login failed
-				$data->error = 'Wrong username or password.';
+				$data->error = 'Mauvais identifiant ou mot de passe';
 				
 				// send error to the view
 				$this->load->view('header');
@@ -164,7 +164,7 @@ class User extends CI_Controller {
 		// create the data object
 		$data = new stdClass();
 		
-		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+		if (isset($_SESSION['mail']) && $_SESSION['logged_in'] === true) {
 			
 			// remove session datas
 			foreach ($_SESSION as $key => $value) {
@@ -185,5 +185,50 @@ class User extends CI_Controller {
 		}
 		
 	}
+
+	public function resetpassword($token) {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+
+
+        $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
+        $this->form_validation->set_rules('pwd2', 'pwd2', 'required');
+        $veriftoken = $this->user_model->select_token($token);
+        if ($veriftoken == true) {
+
+
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('header');
+                $this->load->view('user/resetpassword/resetpassword');
+                $this->load->view('footer');
+
+            } else {
+                $pwd1 = $this->input->post('pwd1');
+                $pwd2 = $this->input->post('pwd2');
+
+
+                if ($pwd1 == $pwd2) {
+                    $newpassword = $pwd1;
+                    $this->user_model->modify_password_from_token($token, $newpassword);
+                    echo "Votre mot de passe a bien été modifié, merci de vous connecter à nouveau";
+                    echo '<a href="' . base_url('user/login') . '">Connection</a>';
+                }
+            }
+        }
+        else{
+            echo "Vous n'avez pas accès a cette page.";
+
+        }
+
+
+
+
+        /*
+        */
+
+    }
+
+
 	
 }

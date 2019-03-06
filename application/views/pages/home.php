@@ -8,4 +8,10 @@ page d'accueil
 
 <body>
 
-<h1><?php echo $title; ?></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php var_dump($_SESSION); ?>
+            </div>
+        </div>
+    </div>
