@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Profil</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.1.0.min.js" ></script>
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-
 <div class="top">
 
     <div class="logo-box">
-        <img src="img/logo.png" alt="logo" class="logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
     </div>
 
 
@@ -72,13 +59,3 @@
 
 
 </div>
-
-<div class="bottom">
-
-</div>
-<div class="clear"></div>
-
-<script type='text/javascript' src='js/script.js'></script>
-
-</body>
-</html>

@@ -1,42 +1,50 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="container">
+<div class="top">
 
-	<div class="row">
-		<?php if (validation_errors()) : ?>
-			<div class="col-md-12">
-				<div class="alert alert-danger" role="alert">
-					<?= validation_errors() ?>
-				</div>
-			</div>
-		<?php endif; ?>
-		<?php if (isset($error)) : ?>
-			<div class="col-md-12">
-				<div class="alert alert-danger" role="alert">
-					<?= $error ?>
-				</div>
-			</div>
-		<?php endif; ?>
-		<div class="col-md-12">
-			<div class="page-header">
-				<h1>Login</h1>
-			</div>
-			<?= form_open() ?>
-				<div class="form-group">
-					<label for="username">Nom d'utilisateur</label>
-					<input type="text" class="form-control" id="mail" name="mail" placeholder="Votre nom d'utilisateur">
-				</div>
-				<div class="form-group">
-					<label for="password">Mot de passe</label>
-					<input type="password" class="form-control" id="pwd" name="pwd" placeholder="Votre mot de passe">
-				</div>
-				<div class="form-group">
-					<input type="submit" class="btn btn-default" value="Connexion">
-				</div>
-                <div class="form-group">
-                    <a href="email">Reset de mot de passe</a>
+    <div class="logo-box">
+        <img src="img/logo.png" alt="logo" class="logo">
+    </div>
+
+
+    <div class="text-box">
+        <h2 class="heading-primary">
+            <span class="heading-primary-main">Connexion</span>
+        </h2>
+    </div>
+</div>
+<div class="middle">
+
+    <form class="form-card" method="post">
+        <fieldset class="form-fieldset">
+            <legend class="form-legend">Connexion</legend>
+            <?php if (isset($error)) : ?>
+                <div class="error">
+                    <?= $error ?>
                 </div>
-			</form>
-		</div>
-	</div><!-- .row -->
+            <?php endif; ?>
 
-</div><!-- .container -->
+            <div class="form-element form-input">
+                <input type="text" class="form-element-field" id="mail" name="mail" placeholder="Votre adresse e-mail">
+                <div class="form-element-bar"></div>
+                <label class="form-element-label" for="username">Adresse mail</label>
+                <?php echo form_error('mail', '<p class="error">', '</p>') ?>
+            </div>
+
+
+            <div class="form-element form-textarea">
+                <input type="password" class="form-element-field" id="pwd" name="pwd" placeholder="Votre mot de passe">
+                <div class="form-element-bar"></div>
+                <label class="form-element-label" for="field-3naeph-0f3yuw-x153ph-dzmahy-qhkmgm">Mot de passe</label>
+                <?php echo form_error('pwd', '<p class="error">', '</p>') ?>
+            </div>
+            <div class="form-group">
+                <a href="email">Mot de passe oublié ?</a>
+            </div>
+        </fieldset>
+        <div class="form-actions">
+                <input type="submit" class="form-btn" value="Connexion">
+        </div>
+    </form>
+
+
+</div>

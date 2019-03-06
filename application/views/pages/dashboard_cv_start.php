@@ -1,9 +1,7 @@
-<body>
-
 <div class="top">
 
     <div class="logo-box">
-        <img src="img/logo.png" alt="logo" class="logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
     </div>
 
 
@@ -24,7 +22,7 @@
 </div>
 
 <div class="middle">
-    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementStart" method="post">
+    <form class="form-card" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementStart" method="post">
 
         <fieldset class="form-fieldset">
 
@@ -53,10 +51,3 @@
 
 
 </div>
-
-<div class="bottom">
-
-</div>
-<div class="clear"></div>
-
-</body>
