@@ -1,17 +1,250 @@
-<?php
-/**
-page d'accueil
- *
- */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-?>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
+
+    <link rel="stylesheet" href="sass/CSS/icon-font.css">
+    <link rel="stylesheet" href="sass/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="sass/img/logo-blue.png">
+    <title>CV Power</title>
+</head>
 <body>
+<!--<div class="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+  <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+  </label>
+  <div class="navigation__background">&nbsp;</div>
+<nav class="navigation__nav">
+      <ul class="navigation__list">
+          <li class="navigation__item"><a href="#form" class="navigation__link">S'inscrire</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">Se connecter</a></li>
 
-    <div class="container">
+          <li class="navigation__item"><a href="#" class="navigation__link">About CV Power</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">About CV Power</a></li>
+
+      </ul>
+  </nav>-->
+</div>
+
+<header class="header">
+    <div class=" header__logo-box">
+        <img src="img/logo.png" alt="Logo" class="header__logo">
+    </div>
+
+    <div class="header__text-box">
+        <h1 class="heading-primary">
+            <span class="heading-primary--main">CV POWER</span>
+            <span class="heading-primary--sub">Créer votre CV professionnel en ligne.</span>
+        </h1>
+
+        <a href="#form" class="btn btn--white btn--animated">Créer Mon CV</a>
+    </div>
+</header>
+
+<main>
+    <section class="section-about">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Choisissez votre modèle préféré
+            </h2>
+        </div>
+
         <div class="row">
-            <div class="col-md-12">
-                <?php var_dump($_SESSION); ?>
+            <div class="col-1-of-2">
+                <h3 class="heading-tertiary u-margin-bottom-small">Transformer dès maintenant votre CV</h3>
+                <p class="paragraph">
+                    Oubliez les heures passées à mettre en page votre CV ou à choisir des polices qui mettent en valeur votre lettre de motivation. L’outil de création en ligne gratuit de CVPower vous permet de créer un CV élégant et attractif sans vous compliquer la vie.
+                    Choisissez votre modèle préféré parmi notre sélection moderne et entièrement personnalisable et générez votre CV en format PDF prêt à candidater.
+                </p>
+
+                <h3 class="heading-tertiary u-margin-bottom-small">Coté recruteur</h3>
+                <p class="paragraph">
+                    Approuvés par les recruteurs, nos modèles sont précisément élaborés pour améliorer la présentation et la lisibilité de votre CV.
+                </p>
+                <!--  <a href="#" class="btn-text">à lire &rarr;</a> -->
+            </div>
+            <div class="col-1-of-2">
+                <div class="composition">
+                    <img src="sass/img/CV1.png" alt="Photo 1" class="composition__photo composition__photo--p1">
+                    <img src="sass/img/CV2.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                    <img src="sass/img/CV3.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                </div>
             </div>
         </div>
+    </section>
+
+    <section class="section-features">
+
+        <div class="row">
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-basic-world"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Titre</h3>
+                    <p class="feature-box__text">
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-basic-compass"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Titre</h3>
+                    <p class="feature-box__text">
+                        Le Lorem Ipsum est simplement du faux lotexte employé dans la composition et la mise en page
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-basic-map"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
+                    <p class="feature-box__text">
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <i class="feature-box__icon icon-basic-heart"></i>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
+                    <p class="feature-box__text">
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="section-stories">
+        <div class="u-center-text u-margin-bottom-big">
+            <h2 class="heading-secondary">
+                Ils sont les mieux placés pour en parler
+            </h2>
+        </div>
+
+        <div class="row">
+            <div class="story">
+                <figure class="story__shape">
+                    <img src="sass/img/photo1.jpg" alt="Person on a tour" class="story__img">
+                    <figcaption class="story__caption">
+                        Mina BENREBIA
+                    </figcaption>
+
+                </figure>
+
+                <div class="story__text">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Cet outil m'a sauvé la vie</h3>
+                    <p>Simple, intuitif et gratuit ! Bon outil pour les personnes qui ne sont pas à l'aise avec le traitement de texte,
+                        pour moi c'est l'application la plus complète pour la création et la mise en forme des CV...Merci CVPower </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="story">
+                <figure class="story__shape">
+                    <img src="sass/img/photo2.jpg" alt="Person on a tour" class="story__img">
+                    <figcaption class="story__caption">
+                        Dorian Legros
+                    </figcaption>
+                </figure>
+
+                <div class="story__text">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Application au top</h3>
+                    <p>Il y a énormément de sites pour faire des CV sur internet mais celui-ci se démarque des autres par sa facilité d'utilisation, joli rendu et possibilité de moduler son CV comme on le souhaite. Le tout en étant gratuit !</p>
+                </div>
+            </div>
+        </div>
+        <!--
+        <div class="u-center-text u-margin-top-huge">
+            <a href="#" class="btn-text">Read all stories &rarr;</a>
+        </div>
+        -->
+    </section>
+
+    <section class="section-book" id="form">
+        <div class="row">
+            <div class="book">
+                <div class="book__form">
+                    <form action="#" class="form">
+                        <div class="u-margin-bottom-medium">
+                            <h2 class="heading-secondary">
+                                Créer Mon CV
+                            </h2>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="email" class="form__input" placeholder="Adresse Mail" id="email">
+                            <label for="email" class="form__label">Adresse Mail</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="password" class="form__input" placeholder="Mot de passe" id="password">
+                            <label for="password" class="form__label">Mot de passe</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input type="password" class="form__input" placeholder="Confirmation Mot de passe" id="password2" >
+                            <label for="password2" class="form__label">Confirmation Mot de passe</label>
+                        </div>
+
+
+                        <div class="form__group">
+                            <a href="#" class="btn btn--blue">S'inscrire</a>
+                            <a href="login" class="btn btn--blue">Connexion</a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="footer__logo-box">
+        <img src="img/logo.png" alt="full logo" class="footer__logo">
     </div>
+
+    <div class="row">
+
+        <div class="col-1-of-2">
+            <div class="footer__navigation">
+                <ul class="footer__list">
+                    <li class="footer__item"><a href="#" class="footer__link">Comapany</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-1-of-2">
+            <p class="footer__copyright">
+                A propos de nous:
+                L'aventure CVPower a débuté en février 2019 lorsque les quatres membres de groupe étudiait à la Nfactory School blablablablablablablabalblablablablab.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+
+</body>
+</html>-

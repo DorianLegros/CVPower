@@ -1,6 +1,29 @@
+<div class="top">
+
+    <div class="logo-box">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
+    </div>
+
+
+    <div class="text-box">
+        <h2 class="heading-primary">
+            <span class="heading-primary-main">Compétences</span>
+            <span class="heading-primary-sub">Etape 4 </span>
+        </h2>
+
+        <div class="step-number">
+            <img src="img/1.png" alt="" class="step-number1">
+            <img src="img/2.png" alt="" class="step-number2">
+            <img src="img/3.png" alt="" class="step-number3">
+            <img src="img/4a.png" alt="" class="step-number4">
+            <img src="img/5.png" alt="" class="step-number5">
+        </div>
+    </div>
+</div>
+
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillP" method="post">
+    <form class="form-card" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillP" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence principale</legend>
 
@@ -40,7 +63,7 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillS" method="post">
+    <form class="form-card" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillS" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence secondaire</legend>
 
@@ -81,7 +104,7 @@
 
 <div class="middle">
 
-    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillO" method="post">
+    <form class="form-card" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementSkillO" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une compétence organisationelle</legend>
 
@@ -94,7 +117,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <a href="<?php if(validation_errors()){ echo "../";} ?>step5-create"><button id="button" data-name="others.html" class="form-btn" type="button">Suivant</button></a>
+            <button id="button" class="form-btn" type="button"><a href="<?php if(validation_errors()){ echo "../";} ?>step5-create">Suivant</a></button>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une compétence organisationelle</button>
         </div>
     </form>

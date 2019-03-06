@@ -50,9 +50,9 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() === false) {
 			
 			// validation not ok, send validation errors to the view
-			$this->load->view('header');
+			$this->load->view('templates/head');
 			$this->load->view('user/register/register', $data);
-			$this->load->view('footer');
+			$this->load->view('templates/foot');
 			
 		} else {
 			
@@ -64,9 +64,9 @@ class User extends CI_Controller {
 			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
-				$this->load->view('header');
+				$this->load->view('templates/head');
 				$this->load->view('user/register/register_success', $data);
-				$this->load->view('footer');
+				$this->load->view('templates/foot');
 				
 			} else {
 				
@@ -74,9 +74,9 @@ class User extends CI_Controller {
 				$data->error = 'There was a problem creating your new account. Please try again.';
 				
 				// send error to the view
-				$this->load->view('header');
+				$this->load->view('templates/head');
 				$this->load->view('user/register/register', $data);
-				$this->load->view('footer');
+				$this->load->view('templates/foot');
 				
 			}
 			
@@ -107,9 +107,9 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() == false) {
 			
 			// validation not ok, send validation errors to the view
-			$this->load->view('header');
+			$this->load->view('templates/head');
 			$this->load->view('user/login/login');
-			$this->load->view('footer');
+			$this->load->view('templates/foot');
 			
 		} else {
 			
@@ -123,9 +123,9 @@ class User extends CI_Controller {
 				$user    = $this->user_model->get_user($user_id);
 
                 // user login ok
-                $this->load->view('header');
+                $this->load->view('templates/head');
                 $this->load->view('user/login/login_success', $data);
-                $this->load->view('footer');
+                $this->load->view('templates/foot');
 				
 				// set session user datas
 				$_SESSION['id']      = (int)$user->id;
@@ -143,9 +143,9 @@ class User extends CI_Controller {
 				$data->error = 'Wrong username or password.';
 				
 				// send error to the view
-				$this->load->view('header');
+				$this->load->view('templates/head');
 				$this->load->view('user/login/login', $data);
-				$this->load->view('footer');
+				$this->load->view('templates/foot');
 				
 			}
 			
@@ -172,9 +172,9 @@ class User extends CI_Controller {
 			}
 			
 			// user logout ok
-			$this->load->view('header');
+			$this->load->view('templates/head');
 			$this->load->view('user/logout/logout_success', $data);
-			$this->load->view('footer');
+			$this->load->view('templates/foot');
 			
 		} else {
 			
@@ -193,9 +193,9 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
         $this->form_validation->set_rules('pwd2', 'pwd2', 'required');
         if($this->form_validation->run() == FALSE){
-            $this->load->view('header');
+            $this->load->view('templates/head');
             $this->load->view('user/resetpassword/resetpassword');
-            $this->load->view('footer');
+            $this->load->view('templates/foot');
 
         }else{
             $pwd1 = $this->input->post('pwd1');

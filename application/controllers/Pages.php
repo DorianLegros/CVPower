@@ -17,6 +17,8 @@ class Pages extends CI_Controller
         $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
+        $this->load->library('javascript');
+        $this->load->library('javascript/jquery');
         $this->load->helper('url');
 
     }
@@ -30,11 +32,7 @@ class Pages extends CI_Controller
 
         $data['title'] = "Accueil";
 
-        $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_index');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_index');
-        $this->load->view('templates/foot');
     }
 
 
@@ -49,9 +47,7 @@ class Pages extends CI_Controller
         $data['liste2'] = $this->Model_CV->get($_SESSION['id']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
@@ -64,9 +60,7 @@ class Pages extends CI_Controller
         $data['liste'] = $this->User_model->get($_SESSION['id']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
@@ -81,9 +75,7 @@ class Pages extends CI_Controller
         $data['title'] = "Création - Étape 1";
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
 
     }
@@ -104,9 +96,7 @@ class Pages extends CI_Controller
         $data['liste'] = $this->Model_Experience->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
 
     }
@@ -123,9 +113,7 @@ class Pages extends CI_Controller
         $data['liste'] = $this->Model_Education->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
@@ -143,9 +131,7 @@ class Pages extends CI_Controller
         $data['liste3'] = $this->Model_Skill_O->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
@@ -163,9 +149,7 @@ class Pages extends CI_Controller
         $data['liste3'] = $this->Model_Award->get($_SESSION['id_CV']);
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
@@ -194,25 +178,31 @@ class Pages extends CI_Controller
         $data['title'] = "Création - Finalisation";
 
         $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
         $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
 
 
-    public function viewCvView($page = "dashboard_view")
+    public function viewCvView($idcv)
     {
-        if(!file_exists(APPPATH.'views/pages/'.$page.'.php')) {
+        if(!file_exists(APPPATH.'views/pages/dashboard_view.php')) {
             show_404();
         }
 
-        $data['title'] = "Nom du CV dans la BDD";
+        $data['title'] = "Votre CV";
 
-        $this->load->view('templates/head', $data);
-        $this->load->view('templates/navbar_dashboard');
-        $this->load->view('pages/'.$page, $data);
-        $this->load->view('templates/footer_dashboard');
-        $this->load->view('templates/foot', $data);
+        $data['liste_user'] = $this->User_model->get($_SESSION['id']);
+        $data['liste_cv'] = $this->Model_CV->getCv($idcv);
+        $data['liste_exp'] = $this->Model_Experience->get($idcv);
+        $data['liste_edu'] = $this->Model_Education->get($idcv);
+        $data['liste_sklp'] = $this->Model_Skill_P->get($idcv);
+        $data['liste_skls'] = $this->Model_Skill_S->get($idcv);
+        $data['liste_sklo'] = $this->Model_Skill_O->get($idcv);
+        $data['liste_lang'] = $this->Model_Language->get($idcv);
+        $data['liste_hobby'] = $this->Model_Hobby->get($idcv);
+        $data['liste_award'] = $this->Model_Award->get($idcv);
+
+        $this->load->view('pages/dashboard_view', $data);
+
     }
 }

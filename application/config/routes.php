@@ -61,7 +61,7 @@ $route['step3-create'] = 'Pages/viewCvEducation';
 $route['step4-create'] = 'Pages/viewCvSkill';
 $route['step5-create'] = 'Pages/viewCvOther';
 $route['finalisation-create'] = 'Pages/viewCvPreview';
-$route['view'] = 'Pages/viewCvView';
+$route['view/(:any)'] = 'Pages/viewCvView/$1';
 
 $route['register'] = 'user/register';
 $route['login'] = 'user/login';
