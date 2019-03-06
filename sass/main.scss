@@ -178,17 +178,6 @@ body{
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .form-btn,
 .form-btn-cancel,
 .form-btn-error {
@@ -203,6 +192,11 @@ body{
   z-index: 0;
   transition: transform 0.28s ease;
   will-change: transform;
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
 }
 
 .form-btn::before,
@@ -867,26 +861,6 @@ tr td a img{
   color:#000;
 }
 
-.button-three:after {
-  content: "";
-  background: $color-4;
-  display: block;
-  position: absolute;
-  padding-top: 300%;
-  padding-left: 350%;
-  margin-left: -20px !important;
-  margin-top: -120%;
-  opacity: 0;
-  transition: all 0.8s
-}
-
-.button-three:active:after {
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-  transition: 0s
-}
-
 .button-content {
   display: flex;
   justify-content: center;
@@ -904,5 +878,4 @@ tr td a img{
   margin-left: auto;
   margin-right: auto;
   width:400px
-
 }
