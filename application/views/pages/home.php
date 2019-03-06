@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="sass/CSS/icon-font.css">
-    <link rel="stylesheet" href="sass/css/style.css">
+    <link rel="stylesheet" href="
+    sass/CSS/icon-font.css">
+    <link rel="stylesheet" href="<?php if(validation_errors()) { echo "../";} ?>sass/css/style.css">
     <link rel="shortcut icon" type="image/png" href="sass/img/logo-blue.png">
     <title>CV Power</title>
 </head>
@@ -178,7 +179,7 @@
         <div class="row">
             <div class="book">
                 <div class="book__form">
-                    <form action="#" class="form">
+                    <form action="<?php if(!validation_errors()) { echo "User/";} ?>register" class="form" method="post">
                         <div class="u-margin-bottom-medium">
                             <h2 class="heading-secondary">
                                 Créer Mon CV
@@ -186,23 +187,27 @@
                         </div>
 
                         <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Adresse Mail" id="email">
-                            <label for="email" class="form__label">Adresse Mail</label>
+                            <input type="mail" class="form__input" placeholder="Adresse Mail" id="email">
+                            <label for="mail" class="form__label">Adresse Mail</label>
+                            <?php echo form_error('mail', '<p class="error">', '</p>') ?>
                         </div>
 
                         <div class="form__group">
-                            <input type="password" class="form__input" placeholder="Mot de passe" id="password">
-                            <label for="password" class="form__label">Mot de passe</label>
+                            <input type="pwd" class="form__input" placeholder="Mot de passe" id="password">
+                            <label for="pwd" class="form__label">Mot de passe</label>
+                            <?php echo form_error('pwd', '<p class="error">', '</p>') ?>
                         </div>
 
                         <div class="form__group">
-                            <input type="password" class="form__input" placeholder="Confirmation Mot de passe" id="password2" >
-                            <label for="password2" class="form__label">Confirmation Mot de passe</label>
+                            <input type="password_confirm" class="form__input" placeholder="Confirmation Mot de passe" id="password2" >
+                            <label for="password_confirm" class="form__label">Confirmation Mot de passe</label>
+                            <?php echo form_error('password_confirm', '<p class="error">', '</p>') ?>
+
                         </div>
 
 
                         <div class="form__group">
-                            <a href="#" class="btn btn--blue">S'inscrire</a>
+                            <input type="submit" class="btn btn--blue" value="S'inscrire">
                             <a href="login" class="btn btn--blue">Connexion</a>
                         </div>
 

@@ -50,9 +50,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() === false) {
 			
 			// validation not ok, send validation errors to the view
-			$this->load->view('templates/head');
-			$this->load->view('user/register/register', $data);
-			$this->load->view('templates/foot');
+			$this->load->view('pages/home', $data);
 			
 		} else {
 			
@@ -64,9 +62,7 @@ class User extends CI_Controller {
 			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
-				$this->load->view('templates/head');
-				$this->load->view('user/register/register_success', $data);
-				$this->load->view('templates/foot');
+                header( "Location: views/viewRegisterSuccess");
 				
 			} else {
 				
@@ -74,9 +70,7 @@ class User extends CI_Controller {
 				$data->error = 'Il y\'a eu un problème lors de la création de votre compte. Veuillez réessayer';
 				
 				// send error to the view
-				$this->load->view('templates/head');
-				$this->load->view('user/register/register', $data);
-				$this->load->view('templates/foot');
+				$this->load->view('pages/home', $data);
 				
 			}
 			

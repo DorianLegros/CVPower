@@ -236,4 +236,16 @@ class Pages extends CI_Controller
         $this->load->view('pages/dashboard_view', $data);
 
     }
+
+    public function viewRegisterSuccess($page = "login_success") {
+        if(!file_exists(APPPATH.'views/user/register/'.$page.'.php')) {
+            show_404();
+        }
+
+        $data['title'] = "Inscription réussie";
+
+        $this->load->view('templates/head', $data);
+        $this->load->view('user/register'.$page, $data);
+        $this->load->view('templates/foot', $data);
+    }
 }
