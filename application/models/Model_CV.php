@@ -10,6 +10,12 @@ class Model_CV extends CI_Model
     {
         return $this->db->select('*')->from('cvp_c_cv')->where('cvp_c_profile_id', $iduser)->get();
     }
+
+    public function getById($idcv)
+    {
+        return $this->db->select('*')->from('cvp_c_cv')->where('id', $idcv)->get();
+    }
+
     public function getAll()
     {
         return $this->db->select('*')->from('cvp_c_cv')->get();

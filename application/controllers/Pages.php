@@ -254,4 +254,13 @@ class Pages extends CI_Controller
         $this->load->view('templates/footer_dashboard');
         $this->load->view('templates/foot', $data);
     }
+
+    public function pdf()
+    {
+
+
+
+
+        $this->load->view('pages/cv_pdf');
+    }
 }
