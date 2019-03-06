@@ -140,6 +140,17 @@ class User_model extends CI_Model {
 
     }
 
+    public function select_token($token){
+        $this->db->select('id')->from('cvp_c_profile')->where('token', $token);
+        $result = $this->db->get();
+        if (($result->num_rows() > 0)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     public function modify_password_from_token($token, $newpassword){
 
 
@@ -150,13 +161,6 @@ class User_model extends CI_Model {
         return true;
 
     }
-
-
-
-	
-}
-
-
 
     public function get($id){
         $this->db->select('*')->from('cvp_c_profile')->where('id', $id);
@@ -177,7 +181,27 @@ class User_model extends CI_Model {
         $this->db->update('cvp_c_profile', $data);
     }
 
+    public function select_mail($to_email){
+        $this->db->select('id')->from('cvp_c_profile')->where('mail', $to_email);
+        $result = $this->db->get();
+        if (($result->num_rows() > 0)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 
 	
 }
+
+
+
+
+
+
+	
+
 
