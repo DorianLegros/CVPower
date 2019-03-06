@@ -23,6 +23,7 @@ class Forms extends CI_Controller
         $this->load->model('User_model');
         $this->load->library('form_validation');
         $this->load->library(array('session'));
+        $this->load->helper('security');
         $this->load->helper('url');
     }
 

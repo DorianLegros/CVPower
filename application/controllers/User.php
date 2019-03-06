@@ -71,7 +71,7 @@ class User extends CI_Controller {
 			} else {
 				
 				// user creation failed, this should never happen
-				$data->error = 'There was a problem creating your new account. Please try again.';
+				$data->error = 'Il y\'a eu un problème lors de la création de votre compte. Veuillez réessayer';
 				
 				// send error to the view
 				$this->load->view('templates/head');
@@ -101,8 +101,8 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('mail', 'mail', 'required');
-		$this->form_validation->set_rules('pwd', 'pwd', 'required');
+		$this->form_validation->set_rules('mail', 'mail', 'required', array('required' => 'Veuillez remplir ce champ'));
+		$this->form_validation->set_rules('pwd', 'pwd', 'required', array('required' => 'Veuillez remplir ce champ'));
 		
 		if ($this->form_validation->run() == false) {
 			
@@ -134,13 +134,13 @@ class User extends CI_Controller {
 //				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 //				$_SESSION['is_admin']     = (bool)$user->is_admin;
 				
-
+                header('Location: dashboard');
 
 				
 			} else {
 				
 				// login failed
-				$data->error = 'Wrong username or password.';
+				$data->error = 'Mauvais nom d\'utilisateur ou mot de passe';
 				
 				// send error to the view
 				$this->load->view('templates/head');
@@ -160,7 +160,9 @@ class User extends CI_Controller {
 	 * @return void
 	 */
 	public function logout() {
-		
+
+        $this->load->library('form_validation');
+
 		// create the data object
 		$data = new stdClass();
 		
@@ -172,9 +174,7 @@ class User extends CI_Controller {
 			}
 			
 			// user logout ok
-			$this->load->view('templates/head');
-			$this->load->view('user/logout/logout_success', $data);
-			$this->load->view('templates/foot');
+			header("Location: home");
 			
 		} else {
 			

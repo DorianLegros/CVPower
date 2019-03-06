@@ -226,7 +226,7 @@
         <div class="col-1-of-2">
             <div class="footer__navigation">
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="#" class="footer__link">Comapany</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
                     <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
                     <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
                     <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
@@ -238,7 +238,7 @@
         <div class="col-1-of-2">
             <p class="footer__copyright">
                 A propos de nous:
-                L'aventure CVPower a débuté en février 2019 lorsque les quatres membres de groupe étudiait à la Nfactory School blablablablablablablabalblablablablab.
+                L'aventure CVPower a débuté en février 2019 lorsque les quatres membres de groupe étudiaient à la Nfactory School
             </p>
         </div>
 
