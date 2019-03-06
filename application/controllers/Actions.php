@@ -127,9 +127,9 @@ class Actions extends CI_Controller
         $this->email->message("Votre CV a bien été envoyé");
         //Send mail
         if($this->email->send())
-            $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+            $this->session->set_flashdata("email_sent","Votre email a bien été envoyé");
         else
-            $this->session->set_flashdata("email_sent","You have encountered an error");
+            $this->session->set_flashdata("email_sent","Impossible d'envoyer un email");
 
         unset($_SESSION['id_CV']);
 

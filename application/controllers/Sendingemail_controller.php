@@ -44,9 +44,9 @@ class Sendingemail_controller extends CI_Controller {
         $this->email->message("Afin de réinitialiser votre mot de passe merci de cliquer sur ce lien http://localhost/cvpower/resetpassword/" . $user_token);
         //Send mail
         if($verif == true && $this->email->send())
-            $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+            $this->session->set_flashdata("email_sent","Votre email a bien été envoyé.");
         else
-            $this->session->set_flashdata("email_sent","You have encountered an error");
+            $this->session->set_flashdata("email_sent","Impossible d'envoyer un email");
         $this->load->view('email/contact_email_form');
     }
     }

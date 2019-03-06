@@ -71,7 +71,7 @@ class User extends CI_Controller {
 			} else {
 				
 				// user creation failed, this should never happen
-				$data->error = 'There was a problem creating your new account. Please try again.';
+				$data->error = 'Il y a un problème lors de la création de votre compte, merci de réessayer';
 				
 				// send error to the view
 				$this->load->view('header');
@@ -140,7 +140,7 @@ class User extends CI_Controller {
 			} else {
 				
 				// login failed
-				$data->error = 'Wrong username or password.';
+				$data->error = 'Mauvais identifiant ou mot de passe';
 				
 				// send error to the view
 				$this->load->view('header');
@@ -217,7 +217,7 @@ class User extends CI_Controller {
             }
         }
         else{
-            echo "Mauvais token";
+            echo "Vous n'avez pas accès a cette page.";
 
         }
 
