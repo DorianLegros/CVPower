@@ -104,6 +104,7 @@ class Actions extends CI_Controller
     }
 
     public function validationFormulaire() {
+
         $this->form_validation->set_rules('color','Couleur', 'required|min_length[5]|max_length[11]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Couleur non valide' ,'max_length' => 'Couleur non valide'));
         if($this->form_validation->run() == FALSE) {
             $data['liste_exp'] = $this->Model_Experience->get($_SESSION['id_CV']);
@@ -125,8 +126,38 @@ class Actions extends CI_Controller
         } else {
 
 
-            unset($_SESSION['id_CV']);
-            header("Location: ../dashboard");
-        }
+              $from_email = "cvpower2019@gmail.com";
+
+
+        //Load email library
+
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'cvpower2019@gmail.com',
+            'smtp_pass' => 'CVPOWER2019!',
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8'
+        );
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+
+        $this->email->from($from_email, 'Identification');
+        $this->email->to($_SESSION['mail']);
+        $this->email->cc("cvpower2019@gmail.com");
+        $this->email->subject('Création cv');
+        $this->email->message("Votre CV a bien été envoyé");
+        //Send mail
+        if($this->email->send())
+            $this->session->set_flashdata("email_sent","Votre email a bien été envoyé");
+        else
+            $this->session->set_flashdata("email_sent","Impossible d'envoyer un email");
+
+        unset($_SESSION['id_CV']);
+
+        header("Location: ../dashboard");
+       
+
     }
 }

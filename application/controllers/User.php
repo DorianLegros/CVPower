@@ -67,8 +67,9 @@ class User extends CI_Controller {
 			} else {
 				
 				// user creation failed, this should never happen
+
 				$data->error = 'Il y\'a eu un problème lors de la création de votre compte. Veuillez réessayer';
-				
+
 				// send error to the view
 				$this->load->view('pages/home', $data);
 				
@@ -135,6 +136,7 @@ class User extends CI_Controller {
 				
 				// login failed
 				$data->error = 'Mauvais nom d\'utilisateur ou mot de passe';
+
 				
 				// send error to the view
 				$this->load->view('templates/head');
@@ -184,30 +186,38 @@ class User extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+
+
         $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
         $this->form_validation->set_rules('pwd2', 'pwd2', 'required');
+
+        $veriftoken = $this->user_model->select_token($token);
+        if ($veriftoken == true) {
+
         if($this->form_validation->run() == FALSE){
             $this->load->view('templates/head');
             $this->load->view('user/resetpassword/resetpassword');
             $this->load->view('templates/foot');
 
-        }else{
-            $pwd1 = $this->input->post('pwd1');
-            $pwd2 = $this->input->post('pwd2');
+            } else {
+                $pwd1 = $this->input->post('pwd1');
+                $pwd2 = $this->input->post('pwd2');
 
-            if ($pwd1 == $pwd2){
-                $newpassword = $pwd1;
-                $this->user_model->modify_password_from_token($token, $newpassword);
+
+                if ($pwd1 == $pwd2) {
+                    $newpassword = $pwd1;
+                    $this->user_model->modify_password_from_token($token, $newpassword);
+                    echo "Votre mot de passe a bien été modifié, merci de vous connecter à nouveau";
+                    echo '<a href="' . base_url('user/login') . '">Connection</a>';
+                }
+
             }
-            echo "Votre mot de passe a bien été modifié, merci de vous connecter à nouveau";
-            echo '<a href="' .base_url('user/login') .'">Connection</a>';
+        }
+        else{
+            echo "Vous n'avez pas accès a cette page.";
+
         }
 
-
-
-
-        /*
-        */
 
     }
 
