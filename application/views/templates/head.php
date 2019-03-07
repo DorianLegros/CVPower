@@ -9,3 +9,9 @@
 </head>
 
 <body>
+
+<div class="top">
+
+    <div class="logo-box">
+        <a href="home"><img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo"></a>
+    </div>

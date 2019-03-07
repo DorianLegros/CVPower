@@ -4,11 +4,15 @@ class Sendingemail_controller extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('form');
+        $this->load->helper(array('url'));
         $this->load->model('user_model');
     }
     public function index() {
-        $this->load->helper('form');
+
+        $data['title'] = "Réinitialisation du mot de passe";
+        $this->load->view('templates/head', $data);
         $this->load->view('email/contact_email_form');
+        $this->load->view('templates/foot', $data);
     }
     public function send_mail() {
         $from_email = "cvpower2019@gmail.com";
@@ -47,7 +51,7 @@ class Sendingemail_controller extends CI_Controller {
             $this->session->set_flashdata("email_sent","Votre email a bien été envoyé.");
         else
             $this->session->set_flashdata("email_sent","Impossible d'envoyer un email");
-        $this->load->view('email/contact_email_form');
+        header('Location: ../home');
     }
     }
 

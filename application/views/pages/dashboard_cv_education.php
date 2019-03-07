@@ -1,10 +1,3 @@
-<div class="top">
-
-    <div class="logo-box">
-        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
-    </div>
-
-
     <div class="text-box">
         <h2 class="heading-primary">
             <span class="heading-primary-main">Formation</span>

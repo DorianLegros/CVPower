@@ -63,7 +63,7 @@ class User extends CI_Controller {
 			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
-                header( "Location: ../Pages/viewRegisterSuccess");
+                header( "Location: ../login");
 				
 			} else {
 				

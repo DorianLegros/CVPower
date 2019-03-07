@@ -90,6 +90,9 @@ class Pages extends CI_Controller
             show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
         }
 
+        if(isset($_SESSION['id_CV'])) {
+            header("Location: step2-create");
+        }
 
         $data['title'] = "Création - Étape 1";
 
@@ -135,6 +138,9 @@ class Pages extends CI_Controller
             show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
         }
 
+        if(!isset($_SESSION['id_CV'])) {
+            header("Location: step1-create");
+        }
 
         $data['title'] = "Création - Étape 3";
         $data['liste'] = $this->Model_Education->get($_SESSION['id_CV']);
@@ -155,6 +161,9 @@ class Pages extends CI_Controller
             show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
         }
 
+        if(!isset($_SESSION['id_CV'])) {
+            header("Location: step1-create");
+        }
 
         $data['title'] = "Création - Étape 4";
         $data['liste1'] = $this->Model_Skill_P->get($_SESSION['id_CV']);
@@ -177,6 +186,9 @@ class Pages extends CI_Controller
             show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
         }
 
+        if(!isset($_SESSION['id_CV'])) {
+            header("Location: step1-create");
+        }
 
         $data['title'] = "Création - Étape 5";
         $data['liste1'] = $this->Model_Language->get($_SESSION['id_CV']);
@@ -197,6 +209,10 @@ class Pages extends CI_Controller
 
         if(!isset($_SESSION['id']) && !isset($_SESSION['mail'])) {
             show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
+        }
+
+        if(!isset($_SESSION['id_CV'])) {
+            header("Location: step1-create");
         }
 
         $data['liste_exp'] = $this->Model_Experience->get($_SESSION['id_CV']);
@@ -248,11 +264,8 @@ class Pages extends CI_Controller
             show_404();
         }
 
-        $data['title'] = "Inscription réussie";
 
-        $this->load->view('templates/head', $data);
-        $this->load->view('user/register/'.$page, $data);
-        $this->load->view('templates/foot', $data);
+        $this->load->view('user/register/'.$page);
     }
 
     public function pdf()

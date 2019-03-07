@@ -160,7 +160,7 @@ class Actions extends CI_Controller
             $this->email->to($_SESSION['mail']);
             $this->email->cc("cvpower2019@gmail.com");
             $this->email->subject('Création cv');
-            $this->email->message("Votre CV a bien été envoyé");
+            $this->email->message("Votre CV a bien été envoyé, vous pouvez trouver sur ce lien le format PDF de votre CV : http://localhost/cvpower/API_pdf/".$_SESSION['id_CV']);
             //Send mail
             if ($this->email->send())
                 $this->session->set_flashdata("email_sent", "Votre email a bien été envoyé");

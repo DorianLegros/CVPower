@@ -67,7 +67,7 @@ $route['register'] = 'user/register';
 $route['login'] = 'user/login';
 $route['logout'] = 'user/logout';
 $route['resetpassword/(:any)'] = 'User/resetpassword/$1';
-$route['email'] = 'Sendingemail_controller';
+$route['email'] = 'Sendingemail_controller/index';
 
 
 $route['API_rest'] = 'API_restfull/get/';

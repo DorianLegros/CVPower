@@ -1,10 +1,3 @@
-<div class="top">
-
-    <div class="logo-box">
-        <img src="img/logo.png" alt="logo" class="logo">
-    </div>
-
-
     <div class="text-box">
         <h2 class="heading-primary">
             <span class="heading-primary-main">Tableau de bord</span>

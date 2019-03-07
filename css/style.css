@@ -130,7 +130,7 @@ body {
 .form-btn,
 .form-btn-cancel,
 .form-btn-error {
-  background: transparent;
+  background: #779BEC;
   font-size: 1rem;
   color: #fff;
   cursor: pointer;
