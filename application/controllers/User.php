@@ -43,9 +43,9 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('mail', 'mail', 'trim|required|valid_email|is_unique[cvp_c_profile.mail]');
-		$this->form_validation->set_rules('pwd', 'pwd', 'trim|required|min_length[6]');
-		$this->form_validation->set_rules('password_confirm', 'password_confirm', 'trim|required|min_length[6]|matches[pwd]');
+		$this->form_validation->set_rules('mail', 'mail', 'trim|required|valid_email|is_unique[cvp_c_profile.mail]', array('required' => 'Veuillez remplir ce champ', 'valid_email' => "Veuillez saisir un email valide", "is_unique" => "Cette adresse email existe déjà"));
+		$this->form_validation->set_rules('pwd', 'pwd', 'trim|required|min_length[6]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court'));
+		$this->form_validation->set_rules('password_confirm', 'password_confirm', 'trim|required|min_length[6]|matches[pwd]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court', 'matches' => 'Les deux mots de passe ne sont pas identiques'));
 		
 		if ($this->form_validation->run() === false) {
 			
@@ -62,7 +62,7 @@ class User extends CI_Controller {
 			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
-                header( "Location: views/viewRegisterSuccess");
+                header( "Location: ../Pages/viewRegisterSuccess");
 				
 			} else {
 				
@@ -87,7 +87,11 @@ class User extends CI_Controller {
 	 * @return void
 	 */
 	public function login() {
-		
+
+        if(isset($_SESSION['id']) && isset($_SESSION['mail'])) {
+            header('Location: dashboard');
+        }
+
 		// create the data object
 		$data = new stdClass();
 		

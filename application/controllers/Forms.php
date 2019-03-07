@@ -29,7 +29,7 @@ class Forms extends CI_Controller
 
     public function traitementStart(){
         $this->form_validation->set_rules('name','Nom', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Nom trop court', 'max_length' => 'Nom trop long'));
-        $this->form_validation->set_rules('description','Description', 'required|min_length[5]|max_length[45]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
+        $this->form_validation->set_rules('description','Description', 'required|min_length[5]|max_length[255]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Description trop courte', 'max_length' => 'Description trop longue'));
         if($this->form_validation->run() == FALSE){
             $data['title'] = "Création - Étape 1";
             $this->load->view('templates/head', $data);

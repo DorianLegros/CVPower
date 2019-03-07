@@ -31,6 +31,12 @@ class Pages extends CI_Controller
             show_404();
         }
 
+        if(isset($_SESSION['id']) && isset($_SESSION['mail'])) {
+            header('Location: dashboard');
+        }
+
+        if (isset($_POST['login'])) {header("Location: login");}
+
         $data['title'] = "Accueil";
 
         $this->load->view('pages/'.$page, $data);
@@ -237,7 +243,7 @@ class Pages extends CI_Controller
 
     }
 
-    public function viewRegisterSuccess($page = "login_success") {
+    public function viewRegisterSuccess($page = "register_success") {
         if(!file_exists(APPPATH.'views/user/register/'.$page.'.php')) {
             show_404();
         }
@@ -245,7 +251,7 @@ class Pages extends CI_Controller
         $data['title'] = "Inscription réussie";
 
         $this->load->view('templates/head', $data);
-        $this->load->view('user/register'.$page, $data);
+        $this->load->view('user/register/'.$page, $data);
         $this->load->view('templates/foot', $data);
     }
 }

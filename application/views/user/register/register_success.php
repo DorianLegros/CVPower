@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<?php header("Refresh:5; home"); ?>
+<?php header("Refresh:5; ../home"); ?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">

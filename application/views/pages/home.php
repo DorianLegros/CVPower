@@ -187,19 +187,19 @@
                         </div>
 
                         <div class="form__group">
-                            <input type="mail" class="form__input" placeholder="Adresse Mail" id="email">
+                            <input type="text" name="mail" class="form__input" placeholder="Adresse Mail" id="email">
                             <label for="mail" class="form__label">Adresse Mail</label>
                             <?php echo form_error('mail', '<p class="error">', '</p>') ?>
                         </div>
 
                         <div class="form__group">
-                            <input type="pwd" class="form__input" placeholder="Mot de passe" id="password">
+                            <input type="password" name="pwd" class="form__input" placeholder="Mot de passe" id="password">
                             <label for="pwd" class="form__label">Mot de passe</label>
                             <?php echo form_error('pwd', '<p class="error">', '</p>') ?>
                         </div>
 
                         <div class="form__group">
-                            <input type="password_confirm" class="form__input" placeholder="Confirmation Mot de passe" id="password2" >
+                            <input type="password" name="password_confirm" class="form__input" placeholder="Confirmation Mot de passe" id="password2" >
                             <label for="password_confirm" class="form__label">Confirmation Mot de passe</label>
                             <?php echo form_error('password_confirm', '<p class="error">', '</p>') ?>
 
@@ -208,7 +208,8 @@
 
                         <div class="form__group">
                             <input type="submit" class="btn btn--blue" value="S'inscrire">
-                            <a href="login" class="btn btn--blue">Connexion</a>
+                            <input type="button" class="btn btn--blue" value="Connexion" onclick="window.location='<?php if(validation_errors()){echo "../";} ?>login';">
+                            <!--<a href="login" class="btn btn--blue">Connexion</a>-->
                         </div>
 
                     </form>
@@ -252,4 +253,4 @@
 
 
 </body>
-</html>-
+</html>

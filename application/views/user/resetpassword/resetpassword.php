@@ -22,11 +22,11 @@
             <?= form_open() ?>
             <div class="form-group">
                 <label for="mail">Nouveau mot de passe</label>
-                <input type="text" class="form-control" id="pwd1" name="pwd1" placeholder="Mot de passe">
+                <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="Mot de passe">
             </div>
             <div class="form-group">
                 <label for="mail">Nouveau mot de passe 2</label>
-                <input type="text" class="form-control" id="pwd2" name="pwd2" placeholder="Répétez votre mot de passe">
+                <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Répétez votre mot de passe">
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-default" value="Envoyer">
