@@ -191,16 +191,18 @@ class User extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
+        if(isset($_SESSION['id']) && isset($_SESSION['mail'])) {
+            header('Location: ../dashboard');
+        }
 
-
-        $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
-        $this->form_validation->set_rules('pwd2', 'pwd2', 'required');
+        $this->form_validation->set_rules('pwd1', 'pwd1', 'required|min_length[6]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court (6 caractères min.)'));
+        $this->form_validation->set_rules('pwd2', 'pwd2', 'required|min_length[6]|matches[pwd1]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court (6 caractères min.)', 'matches' => 'Les deux mots de passe ne sont pas identiques'));
 
         $veriftoken = $this->user_model->select_token($token);
         if ($veriftoken == true) {
 
         if($this->form_validation->run() == FALSE){
-            $this->load->view('templates/head');
+
             $this->load->view('user/resetpassword/resetpassword');
             $this->load->view('templates/foot');
 
@@ -212,15 +214,13 @@ class User extends CI_Controller {
                 if ($pwd1 == $pwd2) {
                     $newpassword = $pwd1;
                     $this->user_model->modify_password_from_token($token, $newpassword);
-                    echo "Votre mot de passe a bien été modifié, merci de vous connecter à nouveau";
-                    echo '<a href="' . base_url('user/login') . '">Connection</a>';
+                    header('Location: ../home');
                 }
 
             }
         }
         else{
-            echo "Vous n'avez pas accès a cette page.";
-
+            show_error("Vous ne disposez pas des droits pour accéder à cette page", 403, "Erreur");
         }
 
 

@@ -156,7 +156,7 @@ class Actions extends CI_Controller
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
 
-            $this->email->from($from_email, 'Identification');
+            $this->email->from($from_email, 'CVPower');
             $this->email->to($_SESSION['mail']);
             $this->email->cc("cvpower2019@gmail.com");
             $this->email->subject('Création cv');

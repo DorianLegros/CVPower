@@ -41,7 +41,7 @@ class Sendingemail_controller extends CI_Controller {
 
 // Set to, from, message, etc.
 
-        $this->email->from($from_email, 'Identification');
+        $this->email->from($from_email, 'CVPower');
         $this->email->to($to_email);
         $this->email->cc("cvpower2019@gmail.com");
         $this->email->subject('Réinitialisation mot de passe');
@@ -52,6 +52,7 @@ class Sendingemail_controller extends CI_Controller {
         else
             $this->session->set_flashdata("email_sent","Impossible d'envoyer un email");
         header('Location: ../home');
+
     }
     }
 

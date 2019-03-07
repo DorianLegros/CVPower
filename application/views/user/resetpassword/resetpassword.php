@@ -1,37 +1,49 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="container">
-    <div class="row">
-        <?php if (validation_errors()) : ?>
-            <div class="col-md-12">
-                <div class="alert alert-danger" role="alert">
-                    <?= validation_errors() ?>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modification du mot de passe</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" type="image/png" href="../sass/img/logo-blue.png">
+</head>
+
+<body>
+
+<div class="top">
+
+    <div class="logo-box">
+        <a href="../home"><img src="../img/logo.png" alt="logo" class="logo"></a>
+    </div>
+<div class="text-box">
+    <h2 class="heading-primary">
+        <span class="heading-primary-main">Mot de passe</span>
+    </h2>
+</div>
+</div>
+<div class="middle">
+
+            <form class="form-card" method="post">
+                <fieldset class="form-fieldset">
+                    <legend class="form-legend">Changement de mot de passe</legend>
+
+            <div class="form-element form-input">
+                <input class="form-element-field"   type = "password" name = "pwd1" placeholder="Votre mot de passe" />
+                <div class="form-element-bar"></div>
+                <label class="form-element-label" for="username">Nouveau mot de passe</label>
+                <?php echo form_error('pwd1', '<p class="error">', '</p>') ?>
             </div>
-        <?php endif; ?>
-        <?php if (isset($error)) : ?>
-            <div class="col-md-12">
-                <div class="alert alert-danger" role="alert">
-                    <?= $error ?>
-                </div>
+            <div class="form-element form-input">
+                <input class="form-element-field"   type = "password" name = "pwd2" placeholder="Votre mot de passe" />
+                <div class="form-element-bar"></div>
+                <label class="form-element-label" for="username">Répéter mot de passer</label>
+                <?php echo form_error('pwd2', '<p class="error">', '</p>') ?>
             </div>
-        <?php endif; ?>
-        <div class="col-md-12">
-            <div class="page-header">
-                <h1>Reset password</h1>
-            </div>
-            <?= form_open() ?>
-            <div class="form-group">
-                <label for="mail">Nouveau mot de passe</label>
-                <input type="password" class="form-control" id="pwd1" name="pwd1" placeholder="Mot de passe">
-            </div>
-            <div class="form-group">
-                <label for="mail">Nouveau mot de passe 2</label>
-                <input type="password" class="form-control" id="pwd2" name="pwd2" placeholder="Répétez votre mot de passe">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-default" value="Envoyer">
+                </fieldset>
+
+            <div class="form-actions">
+                <input type="submit" class="form-btn" value="Envoyer">
             </div>
             </form>
-        </div>
-    </div><!-- .row -->
-</div><!-- .container -->
+</div>
