@@ -248,4 +248,13 @@ class Pages extends CI_Controller
         $this->load->view('user/register'.$page, $data);
         $this->load->view('templates/foot', $data);
     }
+
+    public function pdf()
+    {
+
+
+
+
+        $this->load->view('pages/cv_pdf');
+    }
 }

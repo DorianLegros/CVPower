@@ -72,4 +72,7 @@ $route['email'] = 'Sendingemail_controller';
 
 $route['API_rest'] = 'API_restfull/get/';
 $route['API_restfull'] = 'API_restfull/getAll';
+$route['API_restlist'] = 'API_restfull/listCV';
+$route['API_pdf/(:num)'] = 'API_restfull/pdf/$1';
+$route['pdf'] = 'Pages/pdf';
 
