@@ -38,7 +38,7 @@ h2 a:hover{color:#FF9900}
 #contact-info .col1{text-align:right; padding-right:10px;}
 #contact-info a, #contact-info a:active, #contact-info a:visited{color:#fff;}
 #contact-info a:hover{color:#5035E2; text-shadow: 0px 0px 5px #fff;}
-.links{float:left; margin-left:155px;}
+.links{float:left; margin-left:155px; width: 12%;}
 
 /*   =====  Introduction text   ======   */
 

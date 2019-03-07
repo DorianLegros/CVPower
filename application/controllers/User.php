@@ -46,7 +46,8 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('mail', 'mail', 'trim|required|valid_email|is_unique[cvp_c_profile.mail]', array('required' => 'Veuillez remplir ce champ', 'valid_email' => "Veuillez saisir un email valide", "is_unique" => "Cette adresse email existe déjà"));
 		$this->form_validation->set_rules('pwd', 'pwd', 'trim|required|min_length[6]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court'));
 		$this->form_validation->set_rules('password_confirm', 'password_confirm', 'trim|required|min_length[6]|matches[pwd]', array('required' => 'Veuillez remplir ce champ', 'min_length' => 'Mot de passe trop court', 'matches' => 'Les deux mots de passe ne sont pas identiques'));
-		
+        $this->form_validation->set_rules('check', 'Conditions générales d\'utilisation', 'required', array('required' => 'Vous n\'avez pas coché la case !'));
+
 		if ($this->form_validation->run() === false) {
 			
 			// validation not ok, send validation errors to the view

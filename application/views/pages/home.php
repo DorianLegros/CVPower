@@ -83,31 +83,18 @@
         <div class="row">
             <div class="col-1-of-4">
                 <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-world"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Titre</h3>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Inscription</h3>
                     <p class="feature-box__text">
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                        Vous vous inscrivez et créez un compte  depuis la page d'accueil en remplissant le formulaire d'inscription.
                     </p>
                 </div>
             </div>
 
             <div class="col-1-of-4">
                 <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-compass"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Titre</h3>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Création de CV</h3>
                     <p class="feature-box__text">
-                        Le Lorem Ipsum est simplement du faux lotexte employé dans la composition et la mise en page
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="col-1-of-4">
-                <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-map"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
-                    <p class="feature-box__text">
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                        Remplissez et validez les différents  formulaires nécéssaires pour avoir un CV complet prêt à être utiliser.
                     </p>
                 </div>
 
@@ -115,10 +102,19 @@
 
             <div class="col-1-of-4">
                 <div class="feature-box">
-                    <i class="feature-box__icon icon-basic-heart"></i>
-                    <h3 class="heading-tertiary u-margin-bottom-small">Explore the world</h3>
+                    <h3 class="heading-tertiary u-margin-bottom-small">Côté recruteur</h3>
                     <p class="feature-box__text">
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page
+                        Votre CV s'affiche directement coté recruteur et augmente  vos chances de trouver un emploi.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="col-1-of-4">
+                <div class="feature-box">
+                    <h3 class="heading-tertiary u-margin-bottom-small">Votre CV en PDF</h3>
+                    <p class="feature-box__text">
+                        Avoir votre CV en format PDF et pouvoir le télécharger pour postuler à d'autres offres d'emplois.
                     </p>
                 </div>
 
@@ -201,6 +197,13 @@
                             <label for="password_confirm" class="form__label">Confirmation Mot de passe</label>
                             <?php echo form_error('password_confirm', '<p class="error">', '</p>') ?>
 
+                        </div>
+
+                        <div class="form__group">
+                            <input type="checkbox" class="form-checkbox-field" name="check">
+                            <i class="form-checkbox-button"></i>
+                            <span>J'ai lu et j'accepte les <a href="">Conditions générales d'utilisation</a></span>
+                            <?php echo form_error('check', '<p class="error">', '</p>') ?>
                         </div>
 
 

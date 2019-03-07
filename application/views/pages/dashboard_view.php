@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" type="image/png" href="sass/img/logo-blue.png">
     <link href="../css/default.css" rel="stylesheet" />
     <title><?php echo $title; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
@@ -9,7 +10,7 @@
 
 </head>
 
-<body style="background-image:linear-gradient(to right bottom, rgba(251,224,0, 0.8), rgba(119, 155, 236, 0.8))">
+<body style="background-image:linear-gradient(to right bottom, rgba(<?= $liste_cv[0]['color'] ?>, 0.8), rgba(119, 155, 236, 0.8))">
 
 <!-- Trigger/Open The Modal -->
 <!-- <button id="myBtn">
