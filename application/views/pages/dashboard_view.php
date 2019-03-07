@@ -61,7 +61,7 @@
 
         <div  class="links">
             <div class="col1">Version papier :</div>
-            <div class="col2"><a href="http://localhost/cvpower/API_pdf/<?= $_SESSION['id'] ?>" target="_blank"> PDF</a></div>
+            <div class="col2"><a href="http://localhost/cvpower/API_pdf/<?= $liste_cv[0]['id'] ?>" target="_blank"> PDF</a></div>
         </div>
 
 
