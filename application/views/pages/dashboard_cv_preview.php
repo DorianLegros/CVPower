@@ -207,7 +207,8 @@
                         <canvas width="400" height="400" id="canvas_picker" class="color_wheel"></canvas>
                     </div>
                     <div class="form-element form-input">
-                        <div id="rgb"><input name="color" class="form-element-field"  placeholder="" type="text"></div>
+                        <div id=""><input name="color" class="form-element-field"  placeholder="" type="text"></div>
+                        <div id="rgb"><input name="color" class="form-element-field"  placeholder="" type="text" value="124,210,10"></div>
                         <div class="form-element-bar"></div>
                         <label class="form-element-label" for="color">Couleur</label>
                         <?php echo form_error('color', '<p class="error">', '</p>') ?>

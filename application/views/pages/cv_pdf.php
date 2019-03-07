@@ -9,17 +9,17 @@ if ($res[0]['pro'][0]['driving_licence'] == 1) {
     $permis = "Non";
 }
 
-if ($res[0]['lan'][0]['lan_write'] == 1) {
+if (isset($res[0]['lan'][0]['lan_write']) && $res[0]['lan'][0]['lan_write'] == 1) {
     $write = "Oui";
 } else {
     $write = "Non";
 }
-if ($res[0]['lan'][0]['lan_read'] == 1) {
+if (isset($res[0]['lan'][0]['lan_read']) && $res[0]['lan'][0]['lan_read'] == 1) {
     $read = "Oui";
 } else {
     $read = "Non";
 }
-if ($res[0]['lan'][0]['lan_speak'] == 1) {
+if (isset($res[0]['lan'][0]['lan_speak']) && $res[0]['lan'][0]['lan_speak'] == 1) {
     $speak = "Oui";
 } else {
     $speak = "Non";
