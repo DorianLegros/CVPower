@@ -8,10 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="
-    sass/CSS/icon-font.css">
     <link rel="stylesheet" href="<?php if(validation_errors()) { echo "../";} ?>sass/css/style.css">
-    <link rel="shortcut icon" type="image/png" href="sass/img/logo-blue.png">
+    <link rel="shortcut icon" type="image/png" href="<?php if(validation_errors()) { echo "../";} ?>sass/img/logo-blue.png">
     <title>CV Power</title>
 </head>
 <body>
@@ -35,7 +33,7 @@
 
 <header class="header">
     <div class=" header__logo-box">
-        <img src="img/logo.png" alt="Logo" class="header__logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="Logo" class="header__logo">
     </div>
 
     <div class="header__text-box">
@@ -72,9 +70,9 @@
             </div>
             <div class="col-1-of-2">
                 <div class="composition">
-                    <img src="sass/img/CV1.png" alt="Photo 1" class="composition__photo composition__photo--p1">
-                    <img src="sass/img/CV2.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
-                    <img src="sass/img/CV3.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
+                    <img src="<?php if(validation_errors()) { echo "../";} ?>sass/img/CV1.png" alt="Photo 1" class="composition__photo composition__photo--p1">
+                    <img src="<?php if(validation_errors()) { echo "../";} ?>sass/img/CV2.jpg" alt="Photo 2" class="composition__photo composition__photo--p2">
+                    <img src="<?php if(validation_errors()) { echo "../";} ?>sass/img/CV3.jpg" alt="Photo 3" class="composition__photo composition__photo--p3">
                 </div>
             </div>
         </div>
@@ -224,7 +222,7 @@
 
 <footer class="footer">
     <div class="footer__logo-box">
-        <img src="img/logo.png" alt="full logo" class="footer__logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="full logo" class="footer__logo">
     </div>
 
     <div class="row">
