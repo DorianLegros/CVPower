@@ -136,7 +136,7 @@
         <div class="row">
             <div class="story">
                 <figure class="story__shape">
-                    <img src="sass/img/photo1.jpg" alt="Person on a tour" class="story__img">
+                    <img src="<?php if(validation_errors()) { echo "../";} ?>sass/img/photo1.jpg" alt="Person on a tour" class="story__img">
                     <figcaption class="story__caption">
                         Mina BENREBIA
                     </figcaption>
@@ -154,7 +154,7 @@
         <div class="row">
             <div class="story">
                 <figure class="story__shape">
-                    <img src="sass/img/photo2.jpg" alt="Person on a tour" class="story__img">
+                    <img src="<?php if(validation_errors()) { echo "../";} ?>sass/img/photo2.jpg" alt="Person on a tour" class="story__img">
                     <figcaption class="story__caption">
                         Dorian Legros
                     </figcaption>
