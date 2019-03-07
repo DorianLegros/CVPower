@@ -50,9 +50,7 @@ class User extends CI_Controller {
 		if ($this->form_validation->run() === false) {
 			
 			// validation not ok, send validation errors to the view
-			$this->load->view('header');
-			$this->load->view('user/register/register', $data);
-			$this->load->view('footer');
+			$this->load->view('pages/home', $data);
 			
 		} else {
 			
@@ -64,19 +62,16 @@ class User extends CI_Controller {
 			if ($this->user_model->create_user($user_mail, $user_password)) {
 				
 				// user creation ok
-				$this->load->view('header');
-				$this->load->view('user/register/register_success', $data);
-				$this->load->view('footer');
+                header( "Location: views/viewRegisterSuccess");
 				
 			} else {
 				
 				// user creation failed, this should never happen
-				$data->error = 'Il y a un problème lors de la création de votre compte, merci de réessayer';
-				
+
+				$data->error = 'Il y\'a eu un problème lors de la création de votre compte. Veuillez réessayer';
+
 				// send error to the view
-				$this->load->view('header');
-				$this->load->view('user/register/register', $data);
-				$this->load->view('footer');
+				$this->load->view('pages/home', $data);
 				
 			}
 			
@@ -101,15 +96,15 @@ class User extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		// set validation rules
-		$this->form_validation->set_rules('mail', 'mail', 'required');
-		$this->form_validation->set_rules('pwd', 'pwd', 'required');
+		$this->form_validation->set_rules('mail', 'mail', 'required', array('required' => 'Veuillez remplir ce champ'));
+		$this->form_validation->set_rules('pwd', 'pwd', 'required', array('required' => 'Veuillez remplir ce champ'));
 		
 		if ($this->form_validation->run() == false) {
 			
 			// validation not ok, send validation errors to the view
-			$this->load->view('header');
+			$this->load->view('templates/head');
 			$this->load->view('user/login/login');
-			$this->load->view('footer');
+			$this->load->view('templates/foot');
 			
 		} else {
 			
@@ -123,9 +118,9 @@ class User extends CI_Controller {
 				$user    = $this->user_model->get_user($user_id);
 
                 // user login ok
-                $this->load->view('header');
+                $this->load->view('templates/head');
                 $this->load->view('user/login/login_success', $data);
-                $this->load->view('footer');
+                $this->load->view('templates/foot');
 				
 				// set session user datas
 				$_SESSION['id']      = (int)$user->id;
@@ -134,18 +129,19 @@ class User extends CI_Controller {
 //				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
 //				$_SESSION['is_admin']     = (bool)$user->is_admin;
 				
-
+                header('Location: dashboard');
 
 				
 			} else {
 				
 				// login failed
-				$data->error = 'Mauvais identifiant ou mot de passe';
+				$data->error = 'Mauvais nom d\'utilisateur ou mot de passe';
+
 				
 				// send error to the view
-				$this->load->view('header');
+				$this->load->view('templates/head');
 				$this->load->view('user/login/login', $data);
-				$this->load->view('footer');
+				$this->load->view('templates/foot');
 				
 			}
 			
@@ -160,7 +156,9 @@ class User extends CI_Controller {
 	 * @return void
 	 */
 	public function logout() {
-		
+
+        $this->load->library('form_validation');
+
 		// create the data object
 		$data = new stdClass();
 		
@@ -172,9 +170,7 @@ class User extends CI_Controller {
 			}
 			
 			// user logout ok
-			$this->load->view('header');
-			$this->load->view('user/logout/logout_success', $data);
-			$this->load->view('footer');
+			header("Location: home");
 			
 		} else {
 			
@@ -194,14 +190,14 @@ class User extends CI_Controller {
 
         $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
         $this->form_validation->set_rules('pwd2', 'pwd2', 'required');
+
         $veriftoken = $this->user_model->select_token($token);
         if ($veriftoken == true) {
 
-
-            if ($this->form_validation->run() == FALSE) {
-                $this->load->view('header');
-                $this->load->view('user/resetpassword/resetpassword');
-                $this->load->view('footer');
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('templates/head');
+            $this->load->view('user/resetpassword/resetpassword');
+            $this->load->view('templates/foot');
 
             } else {
                 $pwd1 = $this->input->post('pwd1');
@@ -214,6 +210,7 @@ class User extends CI_Controller {
                     echo "Votre mot de passe a bien été modifié, merci de vous connecter à nouveau";
                     echo '<a href="' . base_url('user/login') . '">Connection</a>';
                 }
+
             }
         }
         else{
@@ -221,11 +218,6 @@ class User extends CI_Controller {
 
         }
 
-
-
-
-        /*
-        */
 
     }
 

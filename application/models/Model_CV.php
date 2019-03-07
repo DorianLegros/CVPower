@@ -13,6 +13,12 @@ class Model_CV extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function getCv($id)
+    {
+        $this->db->select('*')->from('cvp_c_cv')->where('id', $id);
+        return $this->db->get()->result_array();
+    }
+
     public function getIdCv($iduser)
     {
 
@@ -48,6 +54,17 @@ class Model_CV extends CI_Model
 
         //	Une fois que tous les champs ont bien été définis, on "insert" le tout
         $this->db->insert('cvp_c_cv', $data);
+    }
+
+    public function changeColor($id, $color){
+        $data = array(
+            'color' => $color,
+            'updated_at' => date('Y-m-d H:i:s')
+        );
+
+        //	Une fois que tous les champs ont bien été définis, on "update" le tout
+        $this->db->where('id',$id);
+        $this->db->update('cvp_c_cv', $data);
     }
 
     public function update($id, $name, $desc)

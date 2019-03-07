@@ -1,9 +1,7 @@
-<body>
-
 <div class="top">
 
     <div class="logo-box">
-        <img src="img/logo.png" alt="logo" class="logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
     </div>
 
 
@@ -24,7 +22,7 @@
 </div>
 
 <div class="middle">
-    <form class="form-card" onsubmit="return sure()" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementExperience" method="post">
+    <form class="form-card" action="<?php if(!validation_errors()) { echo "Forms/";} ?>traitementExperience" method="post">
         <fieldset class="form-fieldset">
             <legend class="form-legend">Ajouter une expérience</legend>
 
@@ -65,7 +63,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <a href="<?php if(validation_errors()){ echo "../";} ?>step3-create"><button id="button" class="form-btn" type="button">Suivant</button></a>
+          <button id="button" class="form-btn" type="button"><a href="<?php if(validation_errors()){ echo "../";} ?>step3-create">Suivant</a></button>
             <button class="form-btn-cancel -nooutline" name="submitted" type="submit">Ajouter experience</button>
         </div>
     </form>
@@ -99,11 +97,3 @@
     </table>
 
 </div>
-
-<div class="bottom">
-
-</div>
-<div class="clear"></div>
-
-<script type='text/javascript' src='js/script.js'></script>
-</body>

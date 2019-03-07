@@ -1,9 +1,7 @@
-<body>
-
 <div class="top">
 
     <div class="logo-box">
-        <img src="img/logo.png" alt="logo" class="logo">
+        <img src="<?php if(validation_errors()) { echo "../";} ?>img/logo.png" alt="logo" class="logo">
     </div>
 
 
@@ -160,7 +158,7 @@
 
         </fieldset>
         <div class="form-actions">
-            <a href="<?php if(validation_errors()){ echo "../";} ?>finalisation-create"><button id="button" data-name="preview.html" class="form-btn" type="button">Suivant</button></a>
+            <button id="button" class="form-btn" type="button"><a href="<?php if(validation_errors()){ echo "../";} ?>finalisation-create">Suivant</a></button>
             <button class="form-btn-cancel -nooutline" type="submit">Ajouter une  récompence</button>
         </div>
     </form>
@@ -190,14 +188,3 @@
     </table>
 
 </div>
-
-<div class="bottom">
-
-</div>
-<div class="clear"></div>
-
-<script type='text/javascript' src='js/script.js'></script>
-
-</body>
-
-

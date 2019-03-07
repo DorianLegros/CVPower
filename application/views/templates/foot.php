@@ -1,10 +1,12 @@
-<?php
-/**
-Fin du body et du html
- */
+</div>
 
-?>
+<div class="bottom">
 
-<em>&copy; 2015</em>
+</div>
+<div class="clear"></div>
+
+<script type='text/javascript' src='js/script.js'></script>
+
+
 </body>
 </html>
