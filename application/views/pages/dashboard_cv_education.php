@@ -86,7 +86,7 @@
         <tr>
             <th>Niveau</th>
             <th>Formation</th>
-            <th>Ecole</th>
+            <th>École</th>
             <th>Date de début</th>
             <th>Date de fin</th>
             <th>Description</th>

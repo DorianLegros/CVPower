@@ -39,7 +39,7 @@
     <div class="header__text-box">
         <h1 class="heading-primary">
             <span class="heading-primary--main">CV POWER</span>
-            <span class="heading-primary--sub">Créer votre CV professionnel en ligne.</span>
+            <span class="heading-primary--sub">Votre recrutement, plus facilement</span>
         </h1>
 
         <a href="#form" class="btn btn--white btn--animated">Créer Mon CV</a>
@@ -50,21 +50,23 @@
     <section class="section-about">
         <div class="u-center-text u-margin-bottom-big">
             <h2 class="heading-secondary">
-                Choisissez votre modèle préféré
+                Facilitez vos démarches
             </h2>
         </div>
 
         <div class="row">
             <div class="col-1-of-2">
-                <h3 class="heading-tertiary u-margin-bottom-small">Transformer dès maintenant votre CV</h3>
+                <h3 class="heading-tertiary u-margin-bottom-small">Créez dès maintenant votre CV</h3>
                 <p class="paragraph">
-                    Oubliez les heures passées à mettre en page votre CV ou à choisir des polices qui mettent en valeur votre lettre de motivation. L’outil de création en ligne gratuit de CVPower vous permet de créer un CV élégant et attractif sans vous compliquer la vie.
-                    Choisissez votre modèle préféré parmi notre sélection moderne et entièrement personnalisable et générez votre CV en format PDF prêt à candidater.
+                    Oubliez les heures passées à mettre en page votre CV ou à choisir des polices qui mettent en valeur votre CV.
+                    L’outil de création en ligne gratuit de CVPower vous permet de créer un CV élégant et attractif sans vous compliquer la vie
+                    et le générer en format PDF prêt à candidater.
                 </p>
+                <br><br>
 
-                <h3 class="heading-tertiary u-margin-bottom-small">Coté recruteur</h3>
+                <h3 class="heading-tertiary u-margin-bottom-small">Côté recruteur</h3>
                 <p class="paragraph">
-                    Approuvés par les recruteurs, nos modèles sont précisément élaborés pour améliorer la présentation et la lisibilité de votre CV.
+                    Une fois le CV rempli, plus de démarches contraignantes à faire, nous nous chargons de transmettre votre CV à votre futur employeur.
                 </p>
                 <!--  <a href="#" class="btn-text">à lire &rarr;</a> -->
             </div>
@@ -94,7 +96,7 @@
                 <div class="feature-box">
                     <h3 class="heading-tertiary u-margin-bottom-small">Création de CV</h3>
                     <p class="feature-box__text">
-                        Remplissez et validez les différents  formulaires nécéssaires pour avoir un CV complet prêt à être utiliser.
+                        Remplissez et validez les différents  formulaires nécessaires pour avoir un CV complet prêt à être utiliser.
                     </p>
                 </div>
 
@@ -114,7 +116,7 @@
                 <div class="feature-box">
                     <h3 class="heading-tertiary u-margin-bottom-small">Votre CV en PDF</h3>
                     <p class="feature-box__text">
-                        Avoir votre CV en format PDF et pouvoir le télécharger pour postuler à d'autres offres d'emplois.
+                        Vous avez la possibilité de revenir à tout moment consulter votre CV et le télécharger en format PDF.
                     </p>
                 </div>
 
@@ -233,18 +235,17 @@
         <div class="col-1-of-2">
             <div class="footer__navigation">
                 <ul class="footer__list">
-                    <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
-                    <li class="footer__item"><a href="#" class="footer__link">Contact Us</a></li>
-                    <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
-                    <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
-                    <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Entreprise</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Contactez nous</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Recrutement</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Clause de confidentialité</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="col-1-of-2">
             <p class="footer__copyright">
-                A propos de nous:
+                À propos de nous:
                 L'aventure CVPower a débuté en février 2019 lorsque les quatres membres de groupe étudiaient à la Nfactory School
             </p>
         </div>

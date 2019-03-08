@@ -45,22 +45,22 @@
 
     <div id="contact-info">
         <div  class="links" style="margin-left:0px !important;">
-            <div class="col1">Email</div>
+            <div class="col1">Email:</div>
             <div class="col2"><a href="mailto:<?= $liste_user[0]['mail'] ?>" target="_blank"><?= $liste_user[0]['mail'] ?></a></div>
         </div>
 
         <div  class="links">
-            <div class="col1">Tel</div>
+            <div class="col1">Tel:</div>
             <div class="col2"><a href="tel:<?= "0" . $liste_user[0]['phone_number'] ?>" target="_blank"><?= "0" . $liste_user[0]['phone_number'] ?></a></div>
         </div>
 
         <div  class="links">
-            <div class="col1">Permis B :</div>
+            <div class="col1">Permis B:</div>
             <div class="col2"><?php if($liste_user[0]['driving_licence'] == 0){echo "Non";} else {echo "Oui";} ?></div>
         </div>
 
         <div  class="links">
-            <div class="col1">Version papier :</div>
+            <div class="col1">Version papier:</div>
             <div class="col2"><a href="http://localhost/cvpower/API_pdf/<?= $liste_cv[0]['id'] ?>" target="_blank"> PDF</a></div>
         </div>
 
@@ -80,7 +80,7 @@
 
 
     <div class="section">
-        <div class="section-title"><p id="education-section">Formation</p></div>
+        <div class="section-title"><p id="education-section">Formations</p></div>
 
         <div class="clear"></div>
 
@@ -130,7 +130,7 @@
 
     <!-- Experience Section-->
     <div class="section">
-        <div class="section-title"><p id="experience-section">Experience</p></div>
+        <div class="section-title"><p id="experience-section">Experiences</p></div>
 
         <div class="clear"></div>
 
@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="your-details">
-                       Principales
+                       Principale
 
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                     </div>
 
                     <div class="your-details">
-                        Secondaires
+                        Secondaire
 
                     </div>
                 </div>
@@ -214,7 +214,7 @@
                     </div>
 
                     <div class="your-details">
-                        Organisationnelles
+                        Organisationnelle
 
                     </div>
                 </div>
@@ -230,7 +230,7 @@
     </div>
 
     <div class="section">
-        <div class="section-title"><p id="Language-section">Langue</p></div>
+        <div class="section-title"><p id="Language-section">Langues</p></div>
 
         <div class="clear"></div>
 
@@ -283,7 +283,7 @@
 
 
         <div class="section">
-            <div class="section-title"><p id="others-section">Hobby</p></div>
+            <div class="section-title"><p id="others-section">Hobbies</p></div>
 
             <div class="clear"></div>
 
@@ -304,7 +304,7 @@
 
 
             <div class="section">
-                <div class="section-title"><p id="award-section">Récompense</p></div>
+                <div class="section-title"><p id="award-section">Récompenses</p></div>
 
                 <div class="clear"></div>
 

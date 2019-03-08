@@ -1,7 +1,7 @@
 
     <div class="text-box">
         <h2 class="heading-primary">
-            <span class="heading-primary-main">Experience</span>
+            <span class="heading-primary-main">Expérience</span>
             <span class="heading-primary-sub">Etape 2 </span>
         </h2>
 
@@ -21,14 +21,14 @@
             <legend class="form-legend">Ajouter une expérience</legend>
 
             <div class="form-element form-input">
-                <input name="job" id="exp_metier" class="form-element-field" value="<?php if(!empty($_POST['job'])) {echo $_POST['job'];} ?>" placeholder="Remplir avec un metier" type="input" />
+                <input name="job" id="exp_metier" class="form-element-field" value="<?php if(!empty($_POST['job'])) {echo $_POST['job'];} ?>" placeholder="Remplir avec un métier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_metier">Métier</label>
                 <?php echo form_error('job', '<p class="error">', '</p>') ?>
             </div>
 
             <div class="form-element form-input">
-                <input name="company" id="exp_entreprise" class="form-element-field" value="<?php if(!empty($_POST['company'])) {echo $_POST['company'];} ?>" placeholder="Remplir avec l'entreprise lié à ce metier" type="input" />
+                <input name="company" id="exp_entreprise" class="form-element-field" value="<?php if(!empty($_POST['company'])) {echo $_POST['company'];} ?>" placeholder="Remplir avec l'entreprise liée à ce metier" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="exp_entreprise">Entreprise</label>
                 <?php echo form_error('company', '<p class="error">', '</p>') ?>

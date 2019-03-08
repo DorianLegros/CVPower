@@ -23,7 +23,7 @@
             <div class="form-element form-input">
                 <input name="name" id="" class="form-element-field" placeholder="" value="<?php if(!empty($liste[0]['name'])){echo $liste[0]['name'];} ?>" type="input" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Prenom</label>
+                <label class="form-element-label" for="field-omv6eo-metm0n-5j55wv-w3wbws-6nm2b9">Prénom</label>
                 <?php echo form_error('name', '<p class="error">', '</p>') ?>
             </div>
 

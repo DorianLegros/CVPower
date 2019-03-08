@@ -37,7 +37,7 @@
             <div class="form-element form-input">
                 <input class="form-element-field"   type = "password" name = "pwd2" placeholder="Votre mot de passe" />
                 <div class="form-element-bar"></div>
-                <label class="form-element-label" for="username">Répéter mot de passer</label>
+                <label class="form-element-label" for="username">Répéter mot de passe</label>
                 <?php echo form_error('pwd2', '<p class="error">', '</p>') ?>
             </div>
                 </fieldset>

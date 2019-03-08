@@ -11,16 +11,16 @@
 
 <div class="middle">
 
-    <h2 class="pre-first-title">Verifiez le contenu de votre CV</h2>
+    <h2 class="pre-first-title">Vérifiez le contenu de votre CV</h2>
 
     <div class="tableau">
 
-        <h3 class="pre-title">Expérience</h3>
+        <h3 class="pre-title">Expériences</h3>
 
         <table>
             <thead>
             <tr>
-                <th>Metier</th>
+                <th>Métier</th>
                 <th>Entreprise</th>
                 <th>Date de début</th>
                 <th>Date de fin</th>
@@ -43,14 +43,14 @@
             </tbody>
         </table>
 
-        <h3 class="pre-title">Formation</h3>
+        <h3 class="pre-title">Formations</h3>
 
         <table>
             <thead>
             <tr>
                 <th>Niveau</th>
                 <th>Formation</th>
-                <th>Ecole</th>
+                <th>École</th>
                 <th>Date de début</th>
                 <th>Date de fin</th>
                 <th>Description</th>
@@ -135,7 +135,7 @@
             <thead>
             <tr>
                 <th>Nom</th>
-                <th>Ecrit</th>
+                <th>Écrit</th>
                 <th>Lu</th>
                 <th>Parlé</th>
                 <th>Supprimer</th>

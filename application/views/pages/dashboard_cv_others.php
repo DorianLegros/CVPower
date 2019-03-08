@@ -22,7 +22,7 @@
             <legend class="form-legend">Ajouter une langue</legend>
 
             <div class="form-element form-input">
-                <input name="name1" id="skm_name" value="<?php if(!empty($_POST['name1'])) {echo $_POST['name1'];} ?>" class="form-element-field" placeholder="Francais, english..." type="input" />
+                <input name="name1" id="skm_name" value="<?php if(!empty($_POST['name1'])) {echo $_POST['name1'];} ?>" class="form-element-field" placeholder="ex : français, anglais..." type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="skm_name">Langue</label>
                 <?php echo form_error('name1', '<p class="error">', '</p>') ?>
@@ -34,7 +34,7 @@
                 <label class="form-checkbox-label">
                     <input name="level[write]" class="form-checkbox-field" type="checkbox" />
                     <i class="form-checkbox-button"></i>
-                    <span>Ecrit</span>
+                    <span>Écrit</span>
                 </label>
                 <label class="form-checkbox-label">
                     <input name="level[read]" class="form-checkbox-field" type="checkbox" />
@@ -60,7 +60,7 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Ecrit</th>
+            <th>Écrit</th>
             <th>Lu</th>
             <th>Parlé</th>
             <th>Supprimer</th>
@@ -130,7 +130,7 @@
             <legend class="form-legend">Ajouter une récompense</legend>
 
             <div class="form-element form-input">
-                <input name="name3" id="sko_name" class="form-element-field" value="<?php if(!empty($_POST['name3'])) {echo $_POST['name3'];} ?>" placeholder="1er concours d'echec" type="input" />
+                <input name="name3" id="sko_name" class="form-element-field" value="<?php if(!empty($_POST['name3'])) {echo $_POST['name3'];} ?>" placeholder="ex : 1er prix du concours d'echec" type="input" />
                 <div class="form-element-bar"></div>
                 <label class="form-element-label" for="sko_name">Nom</label>
                 <?php echo form_error('name3', '<p class="error">', '</p>') ?>
@@ -153,7 +153,7 @@
         </fieldset>
         <div class="form-actions">
             <button id="button" class="form-btn" type="button"><a href="<?php if(validation_errors()){ echo "../";} ?>finalisation-create">Suivant</a></button>
-            <button class="form-btn-cancel -nooutline" type="submit">Ajouter une  récompence</button>
+            <button class="form-btn-cancel -nooutline" type="submit">Ajouter une  récompense</button>
         </div>
     </form>
 </div>

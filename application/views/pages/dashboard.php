@@ -19,7 +19,7 @@
         </div>
 
         <div class="button-content-sub">
-            <a class="button-three" href="logout">Deconnexion</a>
+            <a class="button-three" href="logout">Déconnexion</a>
         </div>
 
 
@@ -31,7 +31,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Mise à jour le </th>
-                <th>Modifier</th>
+                <!-- <th>Modifier</th>-->
                 <th>Supprimer</th>
 
             </tr>
@@ -41,7 +41,7 @@
             <tr>
                 <td><a href="view/<?= $value['id'] ?>" target="_blank"><strong><?= $value['name'] ?></strong></a></td>
                 <td><?php if(!empty($value['updated_at'])) {echo $value['updated_at'];} else {echo $value['created_at'];} ?></td>
-                <td><a class="" ><img src="https://img.icons8.com/color/24/000000/multi-edit.png" alt="Modifier" title="Modifier"></a></td>
+                <!--<td><a class="" ><img src="https://img.icons8.com/color/24/000000/multi-edit.png" alt="Modifier" title="Modifier"></a></td>-->
                 <td><a class="" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre CV ? Cette action sera irréversible !');" href="Actions/suppressionCV/<?= $value['id'] ?>/f"><img src="https://img.icons8.com/color/24/000000/close-window.png" alt="Supprimer" title="Supprimer"></a></td>
             </tr>
             <?php } ?>

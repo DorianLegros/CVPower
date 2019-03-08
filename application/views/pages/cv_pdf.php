@@ -79,7 +79,7 @@ padding-bottom: -5px;
     Permis ". $permis ."</p>
 </div>
 <div id='section'>
-        <h2>EXPERIENCES PROFESSIONNELLES</h2>
+        <h2>Expériences professionnelles</h2>
         <table>";
 
 foreach($res[0]['exp'] as $exps){
@@ -98,7 +98,7 @@ $html .="
         </table>
     </div>
     <div id='section'>
-        <h2>FORMATIONS</h2>
+        <h2>Formations</h2>
         <table>
         ";
 
@@ -123,13 +123,13 @@ $html .="
         ";
 
 foreach($res[0]['skp'] as $skps){
-    $html .=   " <p> &nbsp; &nbsp; ".$skps['name'] ."&nbsp; &nbsp;<u>Principales</u></p>";
+    $html .=   " <p> &nbsp; &nbsp; ".$skps['name'] ."&nbsp; &nbsp;<u>Principale</u></p>";
 }
 foreach($res[0]['sks'] as $skss){
-    $html .=   " <p> &nbsp; &nbsp; ".$skss['name'] ."&nbsp; &nbsp;<u>Secondaires</u></p>";
+    $html .=   " <p> &nbsp; &nbsp; ".$skss['name'] ."&nbsp; &nbsp;<u>Secondaire</u></p>";
 }
 foreach($res[0]['sko'] as $skso){
-    $html .=   " <p> &nbsp; &nbsp; ".$skso['name'] ."&nbsp; &nbsp;<u>Organisationelles</u></p>";
+    $html .=   " <p> &nbsp; &nbsp; ".$skso['name'] ."&nbsp; &nbsp;<u>Organisationelle</u></p>";
 }
 
 $html .="
@@ -165,7 +165,7 @@ $html .="
     </div>
 
    <div id='section'>
-            	<h2>Hobby</h2>
+            	<h2>Hobbies</h2>
  	                  
          ";
 
@@ -180,7 +180,7 @@ $html .="
    </div>
    
      <div id='section'>
-            	<h2>Récompences</h2>
+            	<h2>Récompenses</h2>
  	                  
          ";
 

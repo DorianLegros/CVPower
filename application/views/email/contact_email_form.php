@@ -20,7 +20,7 @@ echo $this->session->flashdata('email_sent');
 
         </fieldset>
         <div class="form-actions">
-            <input class="form-btn" type = "submit" value = "SEND MAIL">
+            <input class="form-btn" type = "submit" value = "Envoyer">
         </div>
     </form>
 </div>
