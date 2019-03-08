@@ -49,6 +49,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'Pages/viewHome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['home'] = 'Pages/viewHome';
+$route['dashboard'] = 'Pages/viewDashboard';
+$route['profile'] = 'Pages/viewUserProfile';
+$route['step1-create'] = 'Pages/viewCvStart';
+$route['step2-create'] = 'Pages/viewCvExperience';
+$route['step3-create'] = 'Pages/viewCvEducation';
+$route['step4-create'] = 'Pages/viewCvSkill';
+$route['step5-create'] = 'Pages/viewCvOther';
+$route['finalisation-create'] = 'Pages/viewCvPreview';
+$route['view/(:any)'] = 'Pages/viewCvView/$1';
+
+$route['register'] = 'user/register';
+$route['login'] = 'user/login';
+$route['logout'] = 'user/logout';
+$route['resetpassword/(:any)'] = 'User/resetpassword/$1';
+$route['email'] = 'Sendingemail_controller/index';
+
+
+$route['API_rest'] = 'API_restfull/get/';
+$route['API_restfull'] = 'API_restfull/getAll';
+$route['API_restlist'] = 'API_restfull/listCV';
+$route['API_pdf/(:num)'] = 'API_restfull/pdf/$1';
+$route['pdf'] = 'Pages/pdf';
+
